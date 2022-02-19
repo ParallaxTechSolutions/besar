@@ -1,0 +1,329 @@
+<?php
+  $banners = \App\Models\BannerLeft::getBannerImages(13); 
+?>
+<!--================= Page Wellcome Area ===================-->
+@if($banners != NULL)
+<div id="subcatCarousel" class="carousel slide subcat-slider" data-ride="carousel">
+  
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    @foreach($banners as $key =>$banner)
+    <div class="item @if($key == 0) active @endif" style="background-image:url('{{ asset('public/admin/images/banner/left/'.$banner->banner) }}');height:350px">
+    </div>
+    @endforeach
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#subcatCarousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#subcatCarousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+@endif
+    <!--================= Content Area ===================-->
+    <div class="wedding-page-area bg-grey">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-title-area text-center">
+              <h2 class="section-title">Gallery</h2>
+            </div><!--/.section-title-area-->
+          </div><!--/.col-md-12-->
+        </div><!--/.row-->
+      </div><!--/.container-->
+      
+      
+      <div class="single-gallery-group">
+      <div class="container">
+        
+        <div class="row">
+          <div class="col-md-12">
+            <div class="single-gallery-content">
+              <div class="row">
+                <div class="col-md-12">
+                  <ul class="gallery-filter-menu">
+                    <li class="current-tab"><a href="#" data-filter="*" class="filter">Show All</a></li>
+                    <li><a href="#" data-filter=".hotel" class="filter">Hotel</a></li>
+                    <li><a href="#" data-filter=".rooms" class="filter">Rooms</a></li>
+                    <li><a href="#" data-filter=".dining" class="filter">Dining</a></li>
+                    <li><a href="#" data-filter=".facilities" class="filter">Facilities</a></li>
+                    <li><a href="#" data-filter=".wedding" class="filter">Weddings</a></li>
+                    <li><a href="#" data-filter=".events-meetings" class="filter">Meetings</a></li>
+                  </ul><!--/.gallery-filter-menu-->
+                </div><!--/.col-md-12-->
+              </div><!--/.row-->
+              <div class="row gallery-item-content">
+                
+                <div class="col-md-3 grid hotel">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/gallery/img_hotel1.jpg') }}" class="image-popup-btn" title="Tower Regency Hotel &amp; Apartments"><img src="{{ asset('public/front/images/gallery/img_hotel1_360x314.jpg') }}" alt="Tower Regency Hotel &amp; Apartments"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid hotel">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/gallery/img_hotel2.jpg') }}" class="image-popup-btn" title="Tower Regency Hotel &amp; Apartments"><img src="{{ asset('public/front/images/gallery/img_hotel2_360x314.jpg') }}" alt="Tower Regency Hotel &amp; Apartments"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid hotel">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/gallery/img_hotel3.jpg') }}" class="image-popup-btn" title="Tower Regency Hotel &amp; Apartments"><img src="{{ asset('public/front/images/gallery/img_hotel3_360x314.jpg') }}" alt="Tower Regency Hotel &amp; Apartments"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid hotel">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/gallery/img_lobby1.jpg') }}" class="image-popup-btn" title="Lobby Area"><img src="{{ asset('public/front/images/gallery/img_lobby1_360x314.jpg') }}" alt="Lobby Area"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid hotel">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/gallery/img_lobby2.jpg') }}" class="image-popup-btn" title="Lobby Area"><img src="{{ asset('public/front/images/gallery/img_lobby2_360x314.jpg') }}" alt="Lobby Area"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <!-- hotel end -->
+                
+                
+                
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/deluxe_king/img_deluxe_king1.jpg') }}" class="image-popup-btn" title="Deluxe King Room"><img src="{{ asset('public/front/images/rooms/deluxe_king/img_deluxe_king_360x314.jpg') }}" alt="Deluxe King Room"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/deluxe_king/img_deluxe_king2.jpg') }}" class="image-popup-btn" title="Deluxe King Room"><img src="{{ asset('public/front/images/rooms/deluxe_king/img_deluxe_king2_360x314.jpg') }}" alt="Deluxe King Room"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/deluxe_king/img_deluxe_king3.jpg') }}" class="image-popup-btn" title="Deluxe King bathroom"><img src="{{ asset('public/front/images/rooms/deluxe_king/img_deluxe_king3_360x314.jpg') }}" alt="Deluxe King bathroom"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/deluxe_twin/img_deluxe_twin1.jpg') }}" class="image-popup-btn" title="Deluxe Twin Room"><img src="{{ asset('public/front/images/rooms/deluxe_twin/img_deluxe_twin1_360x314.jpg') }}" alt="Deluxe Twin Room"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/deluxe_twin/img_deluxe_twin2.jpg') }}" class="image-popup-btn" title="Deluxe Twin Room"><img src="{{ asset('public/front/images/rooms/deluxe_twin/img_deluxe_twin_360x314.jpg') }}" alt="Deluxe Twin Room"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/deluxe_twin/img_deluxe_twin3.jpg') }}" class="image-popup-btn" title="Deluxe Twin Room"><img src="{{ asset('public/front/images/rooms/deluxe_twin/img_deluxe_twin3_360x314.jpg') }}" alt="Deluxe Twin Room"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/executive_room/img_executive_room1.jpg') }}" class="image-popup-btn" title="Executive King Room"><img src="{{ asset('public/front/images/rooms/executive_room/img_executive_room1_360x314.jpg') }}" alt="Executive King Room"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/executive_room/img_executive_room2.jpg') }}" class="image-popup-btn" title="Executive King Room"><img src="{{ asset('public/front/images/rooms/executive_room/img_executive_room2_360x314.jpg') }}" alt="Executive King Room"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/executive_room/img_executive_room3.jpg') }}" class="image-popup-btn" title="Executive King Room"><img src="{{ asset('public/front/images/rooms/executive_room/img_executive_room_360x314.jpg') }}" alt="Executive King Room"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/executive_room/img_executive_room4.jpg') }}" class="image-popup-btn" title="Executive Twin Room"><img src="{{ asset('public/front/images/rooms/executive_room/img_executive_room4_360x314.jpg') }}" alt="Executive Twin Room"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/executive_room/img_executive_room5.jpg') }}" class="image-popup-btn" title="Executive Twin Room"><img src="{{ asset('public/front/images/rooms/executive_room/img_executive_room5_360x314.jpg') }}" alt="Executive Twin Room"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/executive_room/img_executive_room6.jpg') }}" class="image-popup-btn" title="Executive Room Bathroom"><img src="{{ asset('public/front/images/rooms/executive_room/img_executive_room6_360x314.jpg') }}" alt="Executive Room Bathroom"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/executive_room/img_executive_room7.jpg') }}" class="image-popup-btn" title="Executive Room Bathtub"><img src="{{ asset('public/front/images/rooms/executive_room/img_executive_room7_360x314.jpg') }}" alt="Executive Room Bathtub"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/ambassador_suite/img_ambassador_suite1.jpg') }}" class="image-popup-btn" title="Ambassador Suite"><img src="{{ asset('public/front/images/rooms/ambassador_suite/img_ambassador_suite_360x314.jpg') }}" alt="Ambassador Suite"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/ambassador_suite/img_ambassador_suite2.jpg') }}" class="image-popup-btn" title="Ambassador Suite"><img src="{{ asset('public/front/images/rooms/ambassador_suite/img_ambassador_suite2_360x314.jpg') }}" alt="Ambassador Suite"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/ambassador_suite/img_ambassador_suite3.jpg') }}" class="image-popup-btn" title="Ambassador Suite"><img src="{{ asset('public/front/images/rooms/ambassador_suite/img_ambassador_suite3_360x314.jpg') }}" alt="Ambassador Suite"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/ambassador_suite/img_ambassador_suite4.jpg') }}" class="image-popup-btn" title="Ambassador Suite Bathroom"><img src="{{ asset('public/front/images/rooms/ambassador_suite/img_ambassador_suite4_360x314.jpg') }}" alt="Ambassador Suite Bathroom"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/ambassador_suite/img_ambassador_suite5.jpg') }}" class="image-popup-btn" title="Ambassador Suite Bathroom"><img src="{{ asset('public/front/images/rooms/ambassador_suite/img_ambassador_suite5_360x314.jpg') }}" alt="Ambassador Suite Bathroom"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/president_suite/img_president_suite1.jpg') }}" class="image-popup-btn" title="President Suite"><img src="{{ asset('public/front/images/rooms/president_suite/img_president_suite_360x314.jpg') }}" alt="President Suite"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/president_suite/img_president_suite2.jpg') }}" class="image-popup-btn" title="President Suite"><img src="{{ asset('public/front/images/rooms/president_suite/img_president_suite2_360x314.jpg') }}" alt="President Suite"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/president_suite/img_president_suite3.jpg') }}" class="image-popup-btn" title="President Suite"><img src="{{ asset('public/front/images/rooms/president_suite/img_president_suite3_360x314.jpg') }}" alt="President Suite"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/president_suite/img_president_suite4.jpg') }}" class="image-popup-btn" title="President Suite"><img src="{{ asset('public/front/images/rooms/president_suite/img_president_suite4_360x314.jpg') }}" alt="President Suite"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/president_suite/img_president_suite5.jpg') }}" class="image-popup-btn" title="President Suite Living Area"><img src="{{ asset('public/front/images/rooms/president_suite/img_president_suite5_360x314.jpg') }}" alt="President Suite Living Area"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/president_suite/img_president_suite6.jpg') }}" class="image-popup-btn" title="President Suite Guest Area"><img src="{{ asset('public/front/images/rooms/president_suite/img_president_suite6_360x314.jpg') }}" alt="President Suite Guest Area"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/president_suite/img_president_suite7.jpg') }}" class="image-popup-btn" title="President Suite Bar Area"><img src="{{ asset('public/front/images/rooms/president_suite/img_president_suite7_360x314.jpg') }}" alt="President Suite Bar Area"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/president_suite/img_president_suite8.jpg') }}" class="image-popup-btn" title="President Suite Bathroom"><img src="{{ asset('public/front/images/rooms/president_suite/img_president_suite8_360x314.jpg') }}" alt="President Suite Bathroom"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/president_suite/img_president_suite9.jpg') }}" class="image-popup-btn" title="President Suite Bathroom"><img src="{{ asset('public/front/images/rooms/president_suite/img_president_suite9_360x314.jpg') }}" alt="President Suite Bathroom"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/president_suite/img_president_suite10.jpg') }}" class="image-popup-btn" title="President Suite Bathroom"><img src="{{ asset('public/front/images/rooms/president_suite/img_president_suite10_360x314.jpg') }}" alt="President Suite Bathroom"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/penthouse/img_penthouse1.jpg') }}" class="image-popup-btn" title="Penthouse Bedroom"><img src="{{ asset('public/front/images/rooms/penthouse/img_penthouse_360x314.jpg') }}" alt="Penthouse Bedroom"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/penthouse/img_penthouse2.jpg') }}" class="image-popup-btn" title="Penthouse Bedroom"><img src="{{ asset('public/front/images/rooms/penthouse/img_penthouse2_360x314.jpg') }}" alt="Penthouse Bedroom"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/penthouse/img_penthouse3.jpg') }}" class="image-popup-btn" title="Penthouse Bedroom"><img src="{{ asset('public/front/images/rooms/penthouse/img_penthouse3_360x314.jpg') }}" alt="Penthouse Bedroom"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/penthouse/img_penthouse4.jpg') }}" class="image-popup-btn" title="Penthouse Bedroom"><img src="{{ asset('public/front/images/rooms/penthouse/img_penthouse4_360x314.jpg') }}" alt="Penthouse Bedroom"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/penthouse/img_penthouse5.jpg') }}" class="image-popup-btn" title="Penthouse Bedroom"><img src="{{ asset('public/front/images/rooms/penthouse/img_penthouse5_360x314.jpg') }}" alt="Penthouse Bedroom"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/penthouse/img_penthouse6.jpg') }}" class="image-popup-btn" title="Penthouse Living Room"><img src="{{ asset('public/front/images/rooms/penthouse/img_penthouse6_360x314.jpg') }}" alt="Penthouse Living Room"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/penthouse/img_penthouse7.jpg') }}" class="image-popup-btn" title="Penthouse Living Room"><img src="{{ asset('public/front/images/rooms/penthouse/img_penthouse7_360x314.jpg') }}" alt="Penthouse Living Room"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/penthouse/img_penthouse8.jpg') }}" class="image-popup-btn" title="Penthouse Dining Area"><img src="{{ asset('public/front/images/rooms/penthouse/img_penthouse8_360x314.jpg') }}" alt="Penthouse Dining Area"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/penthouse/img_penthouse9.jpg') }}" class="image-popup-btn" title="Penthouse Outside View"><img src="{{ asset('public/front/images/rooms/penthouse/img_penthouse9_360x314.jpg') }}" alt="Penthouse Outside View"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/penthouse/img_penthouse10.jpg') }}" class="image-popup-btn" title="Penthouse Bathroom"><img src="{{ asset('public/front/images/rooms/penthouse/img_penthouse10_360x314.jpg') }}" alt="Penthouse Bathroom"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/penthouse/img_penthouse11.jpg') }}" class="image-popup-btn" title="Penthouse Bathroom"><img src="{{ asset('public/front/images/rooms/penthouse/img_penthouse11_360x314.jpg') }}" alt="Penthouse Bathroom"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/regency_apartment/img_regency_apartment1.jpg') }}" class="image-popup-btn" title="Regency Apartment Bedroom"><img src="{{ asset('public/front/images/rooms/regency_apartment/img_regency_apartment_360x314.jpg') }}" alt="Regency Apartment Bedroom"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/regency_apartment/img_regency_apartment2.jpg') }}" class="image-popup-btn" title="Regency Apartment"><img src="{{ asset('public/front/images/rooms/regency_apartment/img_regency_apartment2_360x314.jpg') }}" alt="Regency Apartment"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/regency_apartment/img_regency_apartment3.jpg') }}" class="image-popup-btn" title="Regency Apartment"><img src="{{ asset('public/front/images/rooms/regency_apartment/img_regency_apartment3_360x314.jpg') }}" alt="Regency Apartment"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/regency_studio_apartment/img_regency_studio_apartment1.jpg') }}" class="image-popup-btn" title="Regency Studio Apartment"><img src="{{ asset('public/front/images/rooms/regency_studio_apartment/img_regency_studio_apartment1_360x314.jpg') }}" alt="Regency Studio Apartment"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/regency_studio_apartment/img_regency_studio_apartment2.jpg') }}" class="image-popup-btn" title="Regency Studio Apartment Living Area"><img src="{{ asset('public/front/images/rooms/regency_studio_apartment/img_regency_studio_apartment_360x314.jpg') }}" alt="Regency Studio Apartment Living Area"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/regency_studio_apartment/img_regency_studio_apartment3.jpg') }}" class="image-popup-btn" title="Regency Studio Apartment Bathroom"><img src="{{ asset('public/front/images/rooms/regency_studio_apartment/img_regency_studio_apartment3_360x314.jpg') }}" alt="Regency Studio Apartment Bathroom"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/regency_studio_apartment/img_regency_studio_apartment4.jpg') }}" class="image-popup-btn" title="Regency Studio Apartment Washing Area"><img src="{{ asset('public/front/images/rooms/regency_studio_apartment/img_regency_studio_apartment4_360x314.jpg') }}" alt="Regency Studio Apartment Washing Area"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/regency_studio_apartment/img_regency_studio_apartment5.jpg') }}" class="image-popup-btn" title="Regency Studio Apartment Washing Area"><img src="{{ asset('public/front/images/rooms/regency_studio_apartment/img_regency_studio_apartment5_360x314.jpg') }}" alt="Regency Studio Apartment Washing Area"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid rooms">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/rooms/regency_studio_apartment/img_regency_studio_apartment6.jpg') }}" class="image-popup-btn" title="Regency Studio Apartment Washing Are"><img src="{{ asset('public/front/images/rooms/regency_studio_apartment/img_regency_studio_apartment6_360x314.jpg') }}" alt="Regency Studio Apartment Washing Are"></a></div><!--/.single-item-->
+                </div><!--/.grid-->    
+                <!-- rooms end -->
+                
+                
+                
+                <div class="col-md-3 grid dining">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/gallery/img_cafe6_1.jpg') }}" class="image-popup-btn" title="Cafe@6"><img src="{{ asset('public/front/images/gallery/img_cafe6_1_360x314.jpg') }}" alt="Cafe@6"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid dining">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/gallery/img_cafe6_2.jpg') }}" class="image-popup-btn" title="Cafe@6"><img src="{{ asset('public/front/images/gallery/img_cafe6_2_360x314.jpg') }}" alt="Cafe@6"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                 <div class="col-md-3 grid dining">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/gallery/img_cafe6_3.jpg') }}" class="image-popup-btn" title="Cafe@6"><img src="{{ asset('public/front/images/gallery/img_cafe6_3_360x314.jpg') }}" alt="Cafe@6"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid dining">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/gallery/img_cafe6_4.jpg') }}" class="image-popup-btn" title="Cafe@6"><img src="{{ asset('public/front/images/gallery/img_cafe6_4_360x314.jpg') }}" alt="Cafe@6"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid dining">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/gallery/img_cafe6_5.jpg') }}" class="image-popup-btn" title="Cafe@6"><img src="{{ asset('public/front/images/gallery/img_cafe6_5_360x314.jpg') }}" alt="Cafe@6"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid dining">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/gallery/img_tlounge1.jpg') }}" class="image-popup-btn" title="T Lounge"><img src="{{ asset('public/front/images/gallery/img_tlounge1_360x314.jpg') }}" alt="T Lounge"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid dining">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/gallery/img_tlounge2.jpg') }}" class="image-popup-btn" title="T Lounge"><img src="{{ asset('public/front/images/gallery/img_tlounge2_360x314.jpg') }}" alt="T Lounge"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid dining">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/gallery/img_tlounge3.jpg') }}" class="image-popup-btn" title="T Lounge"><img src="{{ asset('public/front/images/gallery/img_tlounge3_360x314.jpg') }}" alt="T Lounge"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid dining">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/gallery/img_tlounge4.jpg') }}" class="image-popup-btn" title="T Lounge"><img src="{{ asset('public/front/images/gallery/img_tlounge4_360x314.jpg') }}" alt="T Lounge"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <!-- dining end -->
+                
+                
+    
+                <div class="col-md-3 grid facilities">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/gallery/img_gym1.jpg') }}" class="image-popup-btn" title="Gym"><img src="{{ asset('public/front/images/gallery/img_gym1_360x314.jpg') }}" alt="Gym"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid facilities">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/gallery/img_gym2.jpg') }}" class="image-popup-btn" title="Gym"><img src="{{ asset('public/front/images/gallery/img_gym2_360x314.jpg') }}" alt="Gym"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid facilities">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/gallery/img_gym3.jpg') }}" class="image-popup-btn" title="Gym"><img src="{{ asset('public/front/images/gallery/img_gym3_360x314.jpg') }}" alt="Gym"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid facilities">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/gallery/img_gym4.jpg') }}" class="image-popup-btn" title="Gym"><img src="{{ asset('public/front/images/gallery/img_gym4_360x314.jpg') }}" alt="Gym"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid facilities">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/gallery/img_sauna.jpg') }}" class="image-popup-btn" title="Sauna"><img src="{{ asset('public/front/images/gallery/img_sauna_360x314.jpg') }}" alt="Sauna"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid facilities">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/gallery/img_jacuzzi.jpg') }}" class="image-popup-btn" title="Jacuzzi"><img src="{{ asset('public/front/images/gallery/img_jacuzzi_360x314.jpg') }}" alt="Jacuzzi"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid facilities">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/gallery/img_swimming_pool1.jpg') }}" class="image-popup-btn" title="Swimming Pool"><img src="{{ asset('public/front/images/gallery/img_swimming_pool1_360x314.jpg') }}" alt="Swimming Pool"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid facilities">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/gallery/img_swimming_pool2.jpg') }}" class="image-popup-btn" title="Swimming Pool Night View"><img src="{{ asset('public/front/images/gallery/img_swimming_pool2_360x314.jpg') }}" alt="Swimming Pool Night View"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid facilities">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/gallery/img_swimming_pool3.jpg') }}" class="image-popup-btn" title="Swimming Pool Night View"><img src="{{ asset('public/front/images/gallery/img_swimming_pool3_360x314.jpg') }}" alt="Swimming Pool Night View"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid facilities">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/gallery/img_tmart.jpg') }}" class="image-popup-btn" title="T-Mart"><img src="{{ asset('public/front/images/gallery/img_tmart_360x314.jpg') }}" alt="T-Mart"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                
+                <!-- end facilities -->
+                
+                
+                <div class="col-md-3 grid wedding">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/gallery/img_wedding1.jpg') }}" class="image-popup-btn" title="Grand Ballroom"><img src="{{ asset('public/front/images/gallery/img_wedding1_360x314.jpg') }}" alt="Wedding"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid wedding">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/gallery/img_wedding2.jpg') }}" class="image-popup-btn" title="Grand Ballroom"><img src="{{ asset('public/front/images/gallery/img_wedding2_360x314.jpg') }}" alt="Wedding"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <!-- end wedding -->
+                
+                
+                <div class="col-md-3 grid events-meetings">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/gallery/img_function_hall1.jpg') }}" class="image-popup-btn" title="Function Hall - Classroom style"><img src="{{ asset('public/front/images/gallery/img_function_hall1_360x314.jpg') }}" alt="Function Hall - Classroom style"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid events-meetings">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/gallery/img_function_hall2.jpg') }}" class="image-popup-btn" title="Function Hall - Board room style"><img src="{{ asset('public/front/images/gallery/img_function_hall2_360x314.jpg') }}" alt="Function Hall - Board room style"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid events-meetings">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/gallery/img_function_hall3.jpg') }}" class="image-popup-btn" title="Function Hall - Theatre style"><img src="{{ asset('public/front/images/gallery/img_function_hall3_360x314.jpg') }}" alt="Function Hall - Theatre style"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <div class="col-md-3 grid events-meetings">
+                  <div class="single-item format-zoom"><a href="{{ asset('public/front/images/gallery/img_function_hall4.jpg') }}" class="image-popup-btn" title="Function Hall - Theatre style"><img src="{{ asset('public/front/images/gallery/img_function_hall4_360x314.jpg') }}" alt="Function Hall - Theatre style"></a></div><!--/.single-item-->
+                </div><!--/.grid-->
+                <!-- end functions and meetings -->
+                
+                
+                
+                
+              </div><!--/.gallery-item-content-->
+            </div><!--/.single-gallery-content-->
+          </div><!--/.col-md-12-->
+        </div><!--/.row-->
+      </div><!--/.container-->
+    </div><!--/.single-gallery-group-->
+    </div><!--/.wedding-plan-area-->
+    

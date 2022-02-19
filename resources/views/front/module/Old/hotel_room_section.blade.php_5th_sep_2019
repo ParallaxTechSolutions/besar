@@ -1,0 +1,50 @@
+<section class="hotel-room-section">
+      <div class="container-fluid">
+        <div class="container-large-screen">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center">
+            <div class="hotel-room-section-title">
+              <h3 class="section-sub-title">Luxurious comfort with a spectacular view of the city</h3>
+              <h2 class="section-title">Rooms &amp;<span> Apartments</span></h2>
+              <p class="section-title-dec">We guarantee your stay only in the comfort of newly refreshed rooms &amp; suites.</p>
+            </div><!--/.hotel-room-section-title-->
+          </div><!--/.col-md-8-->
+          </div><!--/.row-->
+
+         
+          <div class="row mobile-extend">
+            {{-- Added By Sagar 4th Sept 2019 (Rooms Only 4)--}}
+            <?php
+              // merge two array merge into one (rooms as apartments)
+              $products = array_merge($rooms,$aparts);
+            ?>
+            @if($rooms) @foreach($products as $key => $product)
+            {{-- @if($key == 4)  --}}  <?php //break; ?> {{-- @endif --}}
+            <div class="col-md-3 col-sm-6 col-xs-6">
+              <div class="single-room">
+                <div class="room-thumb box-radius"><a href="{{route('rooms-suites/show',$product->id)}}"><img src="{{ asset('public/admin/products/medium/'.$product->thumbnail_image_1) }}"" alt="{{$product->type}}"></a></div>
+                  <div class="room-info box-radius"> <!-- style="height:125px" -->
+                  <h3 class="room-title"><a href="{{route('rooms-suites/show',$product->id)}}"><span> {{$product->type}} </span></a></h3>
+                  {{-- <h5>RM 188 nett / night </h5> --}}
+                  @if ($product->sale_price)                      
+                      @if($product->starting_from == 1)
+                      <h5 style="font-size: 12px !important">     
+                        {{-- <span style="font-size:12px !important">Starting from </span> --}}
+                        Starting from 
+                      @else 
+                      <h5 style="font-size: 14px !important">       
+                      @endif
+                      RM {{ number_format((float)$product->sale_price, 2, '.', '') }} @if($product->gross_price_per_night == 1) gross price @elseif($product->net_price_per_night == 1 ||  $product->is_tax == 0) nett price @endif/ night </h5>
+                  @else
+                      <h5 style="font-size: 14px !important"> Please call to enquire.</h5>
+                  @endif
+                </div>
+              </div>     
+            </div>
+            @endforeach @endif          
+
+          </div><!--/.row-->
+          <div class="row hidden-md hidden-lg text-center extend-btn"><span class="extend-icon"><i class="fa fa-angle-down"></i></span></div>
+        </div><!--/.container-large-screen-->
+      </div><!--/.container-fluid-->
+    </section><!--/.hotel-room-section-->

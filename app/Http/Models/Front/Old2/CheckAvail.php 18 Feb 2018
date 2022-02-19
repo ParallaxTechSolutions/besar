@@ -1,0 +1,49 @@
+<?php
+namespace App\Http\Models\Front; // where this file exists
+
+use Illuminate\Database\Eloquent\Model;
+use DB;
+
+class CheckAvail extends Model{
+
+	function getRoom($check_in, $check_out, $data){
+		$result =  DB::table('products')
+			->join('product_room_prices as prp', function ($join) use ($check_in, $check_out) {
+				$join->on('products.id', '=', 'prp.product_id')
+					->where('prp.status', '=', '1')
+					->where('prp.date', '<', $check_out)
+					->where('prp.date', '>=', $check_in);
+			})
+			->select(
+				'products.*',
+				DB::raw('ROUND(SUM(COALESCE(prp.sale_price, 0)), 2) as sale_price'),
+				DB::raw('ROUND(SUM(COALESCE(prp.list_price, 0)), 2) as list_price'),
+				DB::raw('count(prp.sale_price) as dateCount'),
+				'prp.date as date'
+			);
+
+		if (!empty($data['product_id'])) {
+			$result->where('products.id', $data['product_id']);
+		}
+
+		$result->where('products.status', 1)
+			->groupBy('products.id')
+			->having('sale_price', '>', 0)
+			->having('dateCount', '=', date_diff(date_create($check_in), date_create($check_out))->format('%a'));
+
+		return $result->get();
+	}
+
+	function getPriceByDates($productId, $checkIn, $checkOut) {
+		$result = DB::table('product_room_prices')
+			->where('date', '>=', $checkIn)
+			->where('date', '<', $checkOut)
+			->where('product_id', $productId)
+			->orderBy('date')
+			->get();
+
+		return $result;
+	}
+}
+
+?>

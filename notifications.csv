@@ -1,0 +1,8 @@
+name,actions,emails,status
+"A feedback is received",feedback_received,danny@webqom.com,Active
+"Room is running low",room_running_low,jon.tham@webqom.com,Active
+"A new order is received",new_order_received,jon.tham@webqom.com,Active
+"A new client has registered",client_registered,danny@webqom.com,Active
+"No rooms have been active for booking",room_active_for_booking,jon.tham@webqom.com,Active
+bhawani,new_order_received,bhawanigorana@mailinator.com,Active
+testsssss,new_order_received,testsssss@yopmail.com,Active

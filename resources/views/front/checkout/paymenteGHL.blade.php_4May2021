@@ -1,0 +1,94 @@
+
+<html>
+    <head>
+        <title>Please Wait...</title>
+    </head>
+
+    <body>
+        Please Wait...
+        <form id="ePayment" name="frmPayment" action="https://pay.e-ghl.com/IPGSG/Payment.aspx" method="post" enctype="multipart/form-data">
+            <!--<input type="hidden" name="MerchantCode" value="M14638" --><!--demo_mode-->
+			{{-- <input type="hidden" name="MerchantCode" value="sit12345" />  --}}<!--live_mode-->
+            {{-- <input type="hidden" name="PaymentId" value="" />  --}}{{-- {{ $orderInfo->id }} --}}
+  {{--           <input type="hidden" name="RefNo" value="{{ $orderInfo->order_id }}" />
+            <input type="hidden" name="Amount" value="{{ number_format($total_amount, 2) }}" />
+            <input type="hidden" name="Currency" value="MYR" />
+            <input type="hidden" name="ProdDesc" value="Order ID {{ $orderInfo->order_id }}" />
+            <input type="hidden" name="UserName" value="{{ $orderInfo->billing_first_name . ' ' . $orderInfo->billing_last_name }}" />
+            <input type="hidden" name="UserEmail" value="{{ $orderInfo->billing_email }}" />
+            <input type="hidden" name="UserContact" value="{{ $orderInfo->billing_telephone }}" />
+            <input type="hidden" name="Remark" value="Order ID {{ $orderInfo->order_id }}" />
+            <input type="hidden" name="Lang" value="UTF-8" />
+            <input type="hidden" name="Signature" value="{{ $sign }}" />
+            <input type="hidden" name="ResponseURL" value="{{ url('checkout/successPayment') }}" /> --}}
+         {{--    <input type="hidden" name="TransactionType" value="SALE">
+            <input type="hidden" name="PymtMethod" value="ANY">
+            <input type="hidden" name="ServiceID" value="sit">
+            <input type="hidden" name="PaymentID" value="a23A">
+            <input type="hidden" name="OrderNumber" value="{{$orderInfo->order_id }}">
+            <input type="hidden" name="PaymentDesc" value="Booking No: {{$orderInfo->order_id }}, Sector: KUL-BKI, First Flight Date: 26 Sep 2012">
+            <input type="hidden" name="MerchantReturnURL" value="{{ url('checkout/successPayment') }}">
+            <input type="hidden" name="MerchantCallbackURL" value="{{ url('checkout/successPayment') }}">
+            <input type="hidden" name="Amount" value="228.00">
+            <input type="hidden" name="CurrencyCode" value="MYR">
+            <input type="hidden" name="CustIP" value="192.168.2.34">
+            <input type="hidden" name="CustName" value="maSad">
+            <input type="hidden" name="CustEmail" value="Jasona@gmail.com">
+            <input type="hidden" name="CustPhone" value="60121235698">
+            <input type="hidden" name="HashValue" value="">
+            <input type="hidden" name="LanguageCode" value="en">
+            <input type="hidden" name="PageTimeout" value="780"> --}}
+           {{--  <input type="hidden" name="TransactionType" value="SALE">
+            <input type="hidden" name="PymtMethod" value="ANY">
+            <input type="hidden" name="ServiceID" value="sit">
+            <input type="hidden" name="PaymentID" value="{{$orderInfo->order_id }}">
+            <input type="hidden" name="OrderNumber" value="{{$orderInfo->order_id }}">
+            <input type="hidden" name="PaymentDesc" value="Booking No: {{$orderInfo->order_id }}, Sector: KUL-BKI, First Flight Date: 26 Sep 2012">
+            <input type="hidden" name="MerchantReturnURL" value="s2s">
+            <input type="hidden" name="Amount" value="228.00">
+            <input type="hidden" name="CurrencyCode" value="MYR">
+            <input type="hidden" name="HashValue" value="{{$hashValue}}">
+            <input type="hidden" name="CustIP" value="192.168.2.34">
+            <input type="hidden" name="CustName" value="maSad">
+            <input type="hidden" name="CustEmail" value="Jasona@gmail.com">
+            <input type="hidden" name="CustPhone" value="60121235698">
+            <input name="PageTimeout" value="300" type="hidden"> --}}
+           {{--  <input type="hidden" name="Cardholder" value="TESTER"> --}}
+            {{-- <input type="hidden" name="CardNo" value="4444333322221111">
+            <input name="PageTimeout" value="300" type="hidden">
+            <input type="hidden" name="CardExp" value="202012">
+            <input type="hidden" name="CardCVV2" value="1234">
+            <input type="hidden" name="ECI" value="05">
+            <input type="hidden" name="CAVV" value="AAABA2dGFgAAAAABEUYWAAAAAAA=">
+            <input type="hidden" name="3DXID" value="ejU4ZlB0Q2NmTUpQdndtdGxHWDA="> --}}
+            <p>
+                <strong>eGHL Payments </strong>
+            </p>
+
+            <input name="TransactionType" value="SALE" type="hidden">
+            <input name="PymtMethod" value="ANY" type="hidden">
+            <input name="ServiceID" value="<?php echo $merchantId; ?>" type="hidden">
+            <input name="PaymentID" value="<?php echo $orderInfo->order_id ?>" type="hidden">
+            <input name="OrderNumber" value="<?php echo $orderInfo->id?>" type="hidden">
+            <input name="PaymentDesc" value="Booking No: {{$orderInfo->order_id}}" type="hidden">
+            <input name="MerchantReturnURL" value="<?php echo url('/checkout/successPaymenteGHL');?>" type="hidden">
+            <input name="Amount" value="<?php echo str_replace(',','',number_format($total_amount, 2)) ?>" type="hidden">
+            <input name="CurrencyCode" value="MYR" type="hidden">
+            <input name="CustIP" value="{{$orderInfo->ip_address}}" type="hidden">
+            <input name="CustName" value="{{$orderInfo->billing_first_name . '_' . $orderInfo->billing_last_name}}" type="hidden">
+            <input name="CustEmail" value="{{$orderInfo->billing_email}}" type="hidden">
+            <input name="CustPhone" value="{{$orderInfo->billing_telephone}}" type="hidden">
+            <input name="PageTimeout" value="600" type="hidden">
+            <input name="HashValue" value="{{$hashValue}}" type="hidden">
+        </form>
+        <script>
+        setTimeout(function(){
+            document.getElementById('ePayment').submit();
+        }, 3000);
+        </script>
+    </body>
+</html>
+<? } else {
+      echo "ok";
+    }
+?>

@@ -1,0 +1,3 @@
+[20-Apr-2017 18:05:26 Europe/Moscow] PHP Fatal error:  Class 'Illuminate\Database\Eloquent\Model' not found in /home/mooncakes4791/public_html/app/User.php on line 9
+[20-Apr-2017 18:06:01 Europe/Moscow] PHP Fatal error:  Class 'Illuminate\Database\Eloquent\Model' not found in /home/mooncakes4791/public_html/app/User.php on line 9
+[20-Apr-2017 18:06:01 Europe/Moscow] PHP Fatal error:  Class 'Illuminate\Database\Eloquent\Model' not found in /home/mooncakes4791/public_html/app/User.php on line 9

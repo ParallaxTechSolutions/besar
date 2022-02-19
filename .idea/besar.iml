@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/app" isTestSource="false" packagePrefix="App\" />
+      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Components/PayPal" isTestSource="false" packagePrefix="PayPal\" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Components/PayPal/Api" isTestSource="false" packagePrefix="PayPal\Api\" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Components/PayPal/Auth" isTestSource="false" packagePrefix="PayPal\Auth\" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Components/PayPal/Exception" isTestSource="false" packagePrefix="PayPal\Exception\" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Components/PayPal/Rest" isTestSource="false" packagePrefix="PayPal\Rest\" />
+      <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

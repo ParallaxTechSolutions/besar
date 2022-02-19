@@ -1,0 +1,227 @@
+1581697693412	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile0tmYhl"
+1581697694460	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileGwmHcp"
+1581698914128	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileBOMyY2"
+1581698915178	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilee0vzxv"
+/usr/bin/firefox: line 255: dbus-send: command not found
+Failed to launch bus: Failed to connect to session bus1581699807448	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile5DvaAi"
+/usr/bin/firefox: line 255: dbus-send: command not found
+Starting a11y dbus service...
+Failed to launch bus: Failed to connect to session bus*** You are running in headless mode.
+1581699809201	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1581699809201	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1581699809202	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1581699809202	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+Exiting due to channel error.
+Exiting due to channel error.
+/usr/bin/firefox: line 255: dbus-send: command not found
+Failed to launch bus: Failed to connect to session bus1581699867763	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile57hPbd"
+/usr/bin/firefox: line 255: dbus-send: command not found
+Starting a11y dbus service...
+Failed to launch bus: Failed to connect to session bus*** You are running in headless mode.
+1581699869105	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1581699869592	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1581699869592	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1581699869593	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+JavaScript error: resource:///modules/sessionstore/SessionStore.jsm, line 1325: uncaught exception: 2147746065
+1581699914517	Marionette	INFO	Listening on port 39554
+1581699914549	Marionette	WARN	TLS certificate errors will be ignored for this session
+1581699927811	Marionette	INFO	Stopped listening on port 39554
+JavaScript error: resource://activity-stream/lib/ActivityStreamPrefs.jsm, line 23: NS_ERROR_ILLEGAL_VALUE: Component returned failure code: 0x80070057 (NS_ERROR_ILLEGAL_VALUE) [nsIPrefBranch.removeObserver]
+Exiting due to channel error.
+/usr/bin/firefox: line 255: dbus-send: command not found
+Failed to launch bus: Failed to connect to session bus1581700502868	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilej66d5X"
+/usr/bin/firefox: line 255: dbus-send: command not found
+Starting a11y dbus service...
+Failed to launch bus: Failed to connect to session bus*** You are running in headless mode.
+1581700515048	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1581700515048	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1581700515048	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1581700515048	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+JavaScript error: resource:///modules/sessionstore/SessionStore.jsm, line 1325: uncaught exception: 2147746065
+1581700542403	Marionette	INFO	Listening on port 39675
+1581700547941	Marionette	WARN	TLS certificate errors will be ignored for this session
+1581700567198	Marionette	INFO	Stopped listening on port 39675
+JavaScript error: resource://activity-stream/lib/ActivityStreamPrefs.jsm, line 23: NS_ERROR_ILLEGAL_VALUE: Component returned failure code: 0x80070057 (NS_ERROR_ILLEGAL_VALUE) [nsIPrefBranch.removeObserver]
+Exiting due to channel error.
+/usr/bin/firefox: line 255: dbus-send: command not found
+Failed to launch bus: Failed to connect to session bus1581700634538	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileK1Wd3R"
+/usr/bin/firefox: line 255: dbus-send: command not found
+Starting a11y dbus service...
+Failed to launch bus: Failed to connect to session bus*** You are running in headless mode.
+1581700635171	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1581700635172	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1581700635172	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1581700635172	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+JavaScript error: resource:///modules/sessionstore/SessionStore.jsm, line 1325: uncaught exception: 2147746065
+1581700659732	Marionette	INFO	Listening on port 44018
+1581700659755	Marionette	WARN	TLS certificate errors will be ignored for this session
+1581700699297	Marionette	INFO	Stopped listening on port 44018
+JavaScript error: resource://activity-stream/lib/ActivityStreamPrefs.jsm, line 23: NS_ERROR_ILLEGAL_VALUE: Component returned failure code: 0x80070057 (NS_ERROR_ILLEGAL_VALUE) [nsIPrefBranch.removeObserver]
+
+###!!! [Parent][DispatchAsyncMessage] Error: PBackgroundIDBFactory::Msg_PBackgroundIDBFactoryRequestConstructor Value error: message was deserialized, but contained an illegal value
+
+
+###!!! [Parent][DispatchAsyncMessage] Error: PBackgroundIDBFactory::Msg_PBackgroundIDBFactoryRequestConstructor Value error: message was deserialized, but contained an illegal value
+
+/usr/bin/firefox: line 255: dbus-send: command not found
+Failed to launch bus: Failed to connect to session bus1581701794957	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilentY9sw"
+/usr/bin/firefox: line 255: dbus-send: command not found
+Starting a11y dbus service...
+Failed to launch bus: Failed to connect to session bus*** You are running in headless mode.
+1581701795775	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1581701795776	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1581701795776	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1581701795776	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+JavaScript error: resource:///modules/sessionstore/SessionStore.jsm, line 1325: uncaught exception: 2147746065
+1581701825405	Marionette	INFO	Listening on port 57738
+1581701825720	Marionette	WARN	TLS certificate errors will be ignored for this session
+1581701838369	Marionette	INFO	Stopped listening on port 57738
+JavaScript error: resource://activity-stream/lib/ActivityStreamPrefs.jsm, line 23: NS_ERROR_ILLEGAL_VALUE: Component returned failure code: 0x80070057 (NS_ERROR_ILLEGAL_VALUE) [nsIPrefBranch.removeObserver]
+Exiting due to channel error.
+/usr/bin/firefox: line 255: dbus-send: command not found
+Failed to launch bus: Failed to connect to session bus1581701906198	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile1Kuktl"
+/usr/bin/firefox: line 255: dbus-send: command not found
+Starting a11y dbus service...
+Failed to launch bus: Failed to connect to session bus*** You are running in headless mode.
+1581701906817	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1581701906817	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1581701906818	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1581701906818	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+JavaScript error: resource:///modules/sessionstore/SessionStore.jsm, line 1325: uncaught exception: 2147746065
+1581701931975	Marionette	INFO	Listening on port 41906
+1581701932015	Marionette	WARN	TLS certificate errors will be ignored for this session
+1581701955152	Marionette	INFO	Stopped listening on port 41906
+JavaScript error: resource://activity-stream/lib/ActivityStreamPrefs.jsm, line 23: NS_ERROR_ILLEGAL_VALUE: Component returned failure code: 0x80070057 (NS_ERROR_ILLEGAL_VALUE) [nsIPrefBranch.removeObserver]
+WARNING: At least one completion condition is taking too long to complete. Conditions: [{"name":"Places Connection shutdown","state":{"progress":{}},"filename":"/builddir/build/BUILD/firefox-68.4.1/toolkit/components/places/Database.cpp","lineNumber":503,"stack":["resource://gre/modules/nsAsyncShutdown.jsm:addBlocker:162","resource://gre/modules/PlacesUtils.jsm:null:1982","resource://gre/modules/XPCOMUtils.jsm:get:129","resource://gre/modules/PlacesUtils.jsm:getFolderContents:1335","resource:///modules/BrowserGlue.jsm:getToolbarFolderCount:2743","resource:///modules/BrowserGlue.jsm:_maybeToggleBookmarkToolbarVisibility:2753","resource:///modules/BrowserGlue.jsm:BG__migrateUI:2783","resource:///modules/BrowserGlue.jsm:BG__beforeUIStartup:1173","resource:///modules/BrowserGlue.jsm:BG_observe:807"]}] Barrier: profile-before-change
+
+###!!! [Parent][DispatchAsyncMessage] Error: PBackgroundIDBFactory::Msg_PBackgroundIDBFactoryRequestConstructor Value error: message was deserialized, but contained an illegal value
+
+
+###!!! [Parent][DispatchAsyncMessage] Error: PBackgroundIDBFactory::Msg_PBackgroundIDBFactoryRequestConstructor Value error: message was deserialized, but contained an illegal value
+
+/usr/bin/firefox: line 255: dbus-send: command not found
+Failed to launch bus: Failed to connect to session bus1582899356246	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilevhJf3Y"
+/usr/bin/firefox: line 255: dbus-send: command not found
+Starting a11y dbus service...
+Failed to launch bus: Failed to connect to session bus*** You are running in headless mode.
+1582899359624	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1582899361468	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1582899361468	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1582899361469	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+Exiting due to channel error.
+Exiting due to channel error.
+/usr/bin/firefox: line 255: dbus-send: command not found
+Failed to launch bus: Failed to connect to session bus1582899519150	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileB6E9jC"
+/usr/bin/firefox: line 255: dbus-send: command not found
+Starting a11y dbus service...
+Failed to launch bus: Failed to connect to session bus*** You are running in headless mode.
+1582899519845	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1582899520212	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1582899520213	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1582899520213	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+JavaScript error: resource:///modules/sessionstore/SessionStore.jsm, line 1325: uncaught exception: 2147746065
+1582899553831	Marionette	INFO	Listening on port 50009
+1582899553886	Marionette	WARN	TLS certificate errors will be ignored for this session
+1582899647958	Marionette	INFO	Stopped listening on port 50009
+JavaScript error: resource://activity-stream/lib/ActivityStreamPrefs.jsm, line 23: NS_ERROR_ILLEGAL_VALUE: Component returned failure code: 0x80070057 (NS_ERROR_ILLEGAL_VALUE) [nsIPrefBranch.removeObserver]
+JavaScript error: , line 0: AbortError: A request was aborted, for example through a call to IDBTransaction.abort.
+JavaScript error: , line 0: AbortError: A request was aborted, for example through a call to IDBTransaction.abort.
+
+###!!! [Parent][DispatchAsyncMessage] Error: PBackgroundIDBFactory::Msg_PBackgroundIDBFactoryRequestConstructor Value error: message was deserialized, but contained an illegal value
+
+
+###!!! [Parent][DispatchAsyncMessage] Error: PBackgroundIDBFactory::Msg_PBackgroundIDBFactoryRequestConstructor Value error: message was deserialized, but contained an illegal value
+
+/usr/bin/firefox: line 255: dbus-send: command not found
+Failed to launch bus: Failed to connect to session bus1582899782012	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileGoJG6T"
+/usr/bin/firefox: line 255: dbus-send: command not found
+Starting a11y dbus service...
+Failed to launch bus: Failed to connect to session bus*** You are running in headless mode.
+1582899782795	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1582899785118	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1582899785119	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1582899785119	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+[Parent 16209, IPC Launch #1] WARNING: Failed to launch tab subprocess: file /builddir/build/BUILD/firefox-68.4.1/ipc/glue/GeckoChildProcessHost.cpp, line 606
+[Parent 16209, IPC Launch #1] WARNING: Failed to launch tab subprocess: file /builddir/build/BUILD/firefox-68.4.1/ipc/glue/GeckoChildProcessHost.cpp, line 606
+JavaScript error: chrome://global/content/elements/browser-custom-element.js, line 1167: NS_ERROR_UNEXPECTED: Component returned failure code: 0x8000ffff (NS_ERROR_UNEXPECTED) [nsIScriptSecurityManager.getLoadContextCodebasePrincipal]
+JavaScript error: chrome://browser/content/tabbrowser.js, line 451: TypeError: browser.webProgress is null
+JavaScript error: resource://gre/modules/RemoteWebNavigation.jsm, line 133: TypeError: this._browser.frameLoader.remoteTab is null
+JavaScript error: resource:///modules/sessionstore/SessionStore.jsm, line 1325: uncaught exception: 2147746065
+1582899829050	Marionette	INFO	Listening on port 49178
+1582899829068	Marionette	WARN	TLS certificate errors will be ignored for this session
+Exiting due to channel error.
+Exiting due to channel error.
+/usr/bin/firefox: line 255: dbus-send: command not found
+Failed to launch bus: Failed to connect to session bus1582900380919	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileVqEGbR"
+/usr/bin/firefox: line 255: dbus-send: command not found
+Starting a11y dbus service...
+Failed to launch bus: Failed to connect to session bus*** You are running in headless mode.
+1582900381569	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1582900381569	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1582900381570	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1582900381570	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+console.error: "Could not write session state file " (new Error("_initWorker called too early! Please read the session file from disk first.", "resource:///modules/sessionstore/SessionFile.jsm", 376)) "_initWorker/<@resource:///modules/sessionstore/SessionFile.jsm:376:15\n_initWorker@resource:///modules/sessionstore/SessionFile.jsm:369:12\n_postToWorker@resource:///modules/sessionstore/SessionFile.jsm:411:16\nwrite@resource:///modules/sessionstore/SessionFile.jsm:450:24\nwrite@resource:///modules/sessionstore/SessionFile.jsm:76:32\n_writeState@resource:///modules/sessionstore/SessionSaver.jsm:360:24\n_saveState@resource:///modules/sessionstore/SessionSaver.jsm:294:17\n_saveStateAsync@resource:///modules/sessionstore/SessionSaver.jsm:344:10\nsaveStateAsyncWhenIdle@resource:///modules/sessionstore/SessionSaver.jsm:191:14\ncallback@resource://gre/modules/Timer.jsm:125:7\n"
+JavaScript error: resource:///modules/sessionstore/SessionStore.jsm, line 1325: uncaught exception: 2147746065
+1582900411864	Marionette	INFO	Listening on port 37318
+1582900413911	Marionette	WARN	TLS certificate errors will be ignored for this session
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+/usr/bin/firefox: line 255: dbus-send: command not found
+Failed to launch bus: Failed to connect to session bus1582900906836	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileVEST5c"
+/usr/bin/firefox: line 255: dbus-send: command not found
+Starting a11y dbus service...
+Failed to launch bus: Failed to connect to session bus*** You are running in headless mode.
+1582900907485	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1582900907949	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1582900907949	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1582900907950	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+JavaScript error: resource:///modules/sessionstore/SessionStore.jsm, line 1325: uncaught exception: 2147746065
+1582900938540	Marionette	FATAL	Remote protocol server failed to start: Error: Could not bind to port 55847 (NS_ERROR_SOCKET_ADDRESS_IN_USE)(chrome://marionette/content/server.js:94:17) JS Stack trace: set acceptConnections@server.js:94:17
+start@server.js:124:5
+init/<@marionette.js:493:21
+JavaScript error: resource://activity-stream/lib/ActivityStreamPrefs.jsm, line 23: NS_ERROR_ILLEGAL_VALUE: Component returned failure code: 0x80070057 (NS_ERROR_ILLEGAL_VALUE) [nsIPrefBranch.removeObserver]
+/usr/bin/firefox: line 255: dbus-send: command not found
+Failed to launch bus: Failed to connect to session bus1582901199816	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileniJ6VX"
+/usr/bin/firefox: line 255: dbus-send: command not found
+Starting a11y dbus service...
+Failed to launch bus: Failed to connect to session bus*** You are running in headless mode.
+1582901200599	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1582901200683	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1582901200684	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1582901200684	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+[Parent 24281, IPC Launch #1] WARNING: Failed to launch tab subprocess: file /builddir/build/BUILD/firefox-68.4.1/ipc/glue/GeckoChildProcessHost.cpp, line 606
+[Parent 24281, IPC Launch #1] WARNING: Failed to launch tab subprocess: file /builddir/build/BUILD/firefox-68.4.1/ipc/glue/GeckoChildProcessHost.cpp, line 606
+JavaScript error: chrome://global/content/elements/browser-custom-element.js, line 1167: NS_ERROR_UNEXPECTED: Component returned failure code: 0x8000ffff (NS_ERROR_UNEXPECTED) [nsIScriptSecurityManager.getLoadContextCodebasePrincipal]
+JavaScript error: chrome://browser/content/tabbrowser.js, line 451: TypeError: browser.webProgress is null
+JavaScript error: resource://gre/modules/RemoteWebNavigation.jsm, line 133: TypeError: this._browser.frameLoader.remoteTab is null
+JavaScript error: resource:///modules/sessionstore/SessionStore.jsm, line 1325: uncaught exception: 2147746065
+1582901239083	Marionette	INFO	Listening on port 47977
+1582901239345	Marionette	WARN	TLS certificate errors will be ignored for this session
+Exiting due to channel error.
+Exiting due to channel error.
+thread 'tokio-runtime-worker-0' panicked at 'could not initialize thread_rng: All entropy sources failed (permanently unavailable); cause: OS RNG not yet seeded (not ready yet); cause: Resource temporarily unavailable (os error 11)', /builds/worker/workspace/build/src/third_party/rust/rand/src/rngs/thread.rs:80:17
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace.
+/usr/bin/firefox: line 255: dbus-send: command not found
+Failed to launch bus: Failed to connect to session bus1582902029003	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileTU1ySA"
+/usr/bin/firefox: line 255: dbus-send: command not found
+Starting a11y dbus service...
+Failed to launch bus: Failed to connect to session bus*** You are running in headless mode.
+1582902032148	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1582902032148	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1582902032149	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1582902032150	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+JavaScript error: resource:///modules/sessionstore/SessionStore.jsm, line 1325: uncaught exception: 2147746065
+1582902065167	Marionette	INFO	Listening on port 41544
+1582902066300	Marionette	WARN	TLS certificate errors will be ignored for this session
+/usr/bin/firefox: line 255: dbus-send: command not found
+Failed to launch bus: Failed to connect to session bus1583078544080	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileCINZDG"
+/usr/bin/firefox: line 255: dbus-send: command not found
+Starting a11y dbus service...
+Failed to launch bus: Failed to connect to session bus*** You are running in headless mode.
+1583078545161	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1583078545772	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1583078545772	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1583078545773	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+Exiting due to channel error.
+Exiting due to channel error.

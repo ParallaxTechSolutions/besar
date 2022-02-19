@@ -1,0 +1,40 @@
+
+
+https://www.google.com/travel/hotels/entity/CgsIto769aif5OCnARAB/prices?g2lb=2502548,4258168,4260007,4270442,4274032,4291318,4305595,4306835,4308216,4308226,4314846,4317915,4328159,4329288,4330113,4346806,4347918,4270859,4284970,4291517,4316256&hl=en&gl=my&un=1&grf=EmQKLAgOEigSJnIkKiIKBwjkDxAEGAESBwjkDxAEGAIgADAeQMoCSgcI5A8QAhgbCjQIDBIwEi6yASsSKQonCiUweDMxY2FlYzg0MmZlNmNlMjU6MHhhN2MxOTBmYThlYmU4NzM2&rp=ELaO-vWon-TgpwE4AkAASAE&ictx=1Traceback (most recent call last):
+  File "/home/yo2/303/PYTHON/hotel_bookingdetails/hotel_bookingdetails/hotel_bookingdetails/spiders/bookingdetails.py", line 103, in getBookingDetails
+    driver = webdriver.Firefox(executable_path=geckodriver, firefox_options=options)
+  File "/usr/local/lib/python2.7/site-packages/selenium/webdriver/firefox/webdriver.py", line 174, in __init__
+    keep_alive=True)
+  File "/usr/local/lib/python2.7/site-packages/selenium/webdriver/remote/webdriver.py", line 157, in __init__
+    self.start_session(capabilities, browser_profile)
+  File "/usr/local/lib/python2.7/site-packages/selenium/webdriver/remote/webdriver.py", line 252, in start_session
+    response = self.execute(Command.NEW_SESSION, parameters)
+  File "/usr/local/lib/python2.7/site-packages/selenium/webdriver/remote/webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "/usr/local/lib/python2.7/site-packages/selenium/webdriver/remote/errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+TimeoutException: Message: connection refused
+
+
+
+https://www.google.com/travel/hotels/entity/CgsIto769aif5OCnARAB/prices?g2lb=2502548,4258168,4260007,4270442,4274032,4291318,4305595,4306835,4308216,4314846,4317915,4328159,4329288,4330113,4347918,4351596,4270859,4284970,4291517,4316256&hl=en&gl=my&un=1&grf=EmQKLAgOEigSJnIkKiIKBwjkDxADGBcSBwjkDxADGBggADAeQMoCSgcI5A8QAhgbCjQIDBIwEi6yASsSKQonCiUweDMxY2FlYzg0MmZlNmNlMjU6MHhhN2MxOTBmYThlYmU4NzM2&rp=ELaO-vWon-TgpwE4AkAASAE&ictx=1Traceback (most recent call last):
+  File "/home/yo2/303/PYTHON/hotel_bookingdetails/hotel_bookingdetails/hotel_bookingdetails/spiders/bookingdetails.py", line 103, in getBookingDetails
+    driver = webdriver.Firefox(executable_path=geckodriver, firefox_options=options)
+  File "/usr/local/lib/python2.7/site-packages/selenium/webdriver/firefox/webdriver.py", line 174, in __init__
+    keep_alive=True)
+  File "/usr/local/lib/python2.7/site-packages/selenium/webdriver/remote/webdriver.py", line 157, in __init__
+    self.start_session(capabilities, browser_profile)
+  File "/usr/local/lib/python2.7/site-packages/selenium/webdriver/remote/webdriver.py", line 252, in start_session
+    response = self.execute(Command.NEW_SESSION, parameters)
+  File "/usr/local/lib/python2.7/site-packages/selenium/webdriver/remote/webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "/usr/local/lib/python2.7/site-packages/selenium/webdriver/remote/errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+TimeoutException: Message: connection refused
+
+
+
+https://www.google.com/travel/hotels/entity/CgsIto769aif5OCnARAB/prices?g2lb=2502548,2503228,4258168,4260007,4270442,4274032,4291318,4305595,4306835,4308216,4314846,4317915,4326762,4328159,4329288,4330113,4341278,4347918,4358982,4359511,4270859,4284970,4291517,4307997&hl=en&gl=my&un=1&grf=EmQKLAgOEigSJnIkKiIKBwjkDxADGAQSBwjkDxADGAUgADAeQMoCSgcI5A8QAxgCCjQIDBIwEi6yASsSKQonCiUweDMxY2FlYzg0MmZlNmNlMjU6MHhhN2MxOTBmYThlYmU4NzM2&rp=ELaO-vWon-TgpwEQto769aif5OCnATgCQABIAQ&ictx=1Traceback (most recent call last):
+  File "/home/yo2/303/PYTHON/hotel_bookingdetails/hotel_bookingdetails/hotel_bookingdetails/spiders/bookingdetails.py", line 112, in getBookingDetails
+    except WebDriverException:
+NameError: global name 'WebDriverException' is not defined

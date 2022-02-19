@@ -1,0 +1,846 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 6.0.7.3 (Linux)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="2019-09-04T00:23:54.293342045"/>
+	<style type="text/css">
+		pre.cjk { font-family: "DejaVu Sans Mono", monospace }
+	</style>
+</head>
+<body lang="en-US" dir="ltr">
+<p>middleware('auth'); $this-&gt;ProductModel = new Product();
+$this-&gt;roomPriceModel = new RoomPrice(); $this-&gt;CategoryModel =
+new Category(); $this-&gt;BrandModel = new Brand(); $this-&gt;ColorModel
+= new Color(); $this-&gt;ShippingModel = new ShippingMethod();
+$this-&gt;Image = new Image_lib(); } function index() { return
+redirect('web88cms/dashboard'); } function importcsv(){
+if(Request::hasFile('datafile') || Request::get('change_status')){
+$st = (Request::get('status'))? 1 : 0; $settings =
+GlobalSettings::saveSettings('product_global',json_encode(array('status'
+=&gt; $st))); if(Request::get('change_status')){ // change status
+$status = (Request::get('status'))? 1 : 0; $product = new Product();
+$product-&gt;updateAllProductsStatus($status); }
+if(Request::hasFile('datafile')){ // do import
+if(Request::file('datafile')-&gt;getClientOriginalExtension() !=
+&quot;csv&quot;){ Session::set('product_global_setup.warning', 'Only
+csv files are allowed'); return
+redirect('web88cms/prdouctglobalsetup'); }
+Request::file('datafile')-&gt;move('public/uploads', 'products.csv');
+$row = 1; if (($handle = fopen(&quot;public/uploads/products.csv&quot;,
+&quot;r&quot;)) !== FALSE) { $products = array(); while (($data =
+fgetcsv($handle, 1000, &quot;,&quot;)) !== FALSE) { if ($row == 1){
+$row++; continue; } $row++; $products[] = array( 'status' =&gt;
+$data[0], // products table 'type' =&gt; $data[1], // products table
+'room_code' =&gt; $data[2], // products table 'category' =&gt;
+$data[3], //categories table 'sub_category' =&gt; $data[4],
+//categories table 'sub_sub_category' =&gt; $data[5], //categories
+table 'sub_sub_sub_category' =&gt; $data[6], //categories table
+'sub_sub_sub_sub_category' =&gt; $data[7], //categories table
+'product_brand' =&gt; $data[8], // brands table 'sale_price' =&gt;
+$data[9], // products table 'list_price' =&gt; $data[10], // products
+table 'quantity_in_stock' =&gt; $data[11], // products table
+'low_level_in_stock' =&gt; $data[12], // products table
+'manufacturer_part_number' =&gt; $data[13], // products table 'tax'
+=&gt; $data[14], // products table 'weight' =&gt; $data[15] //
+products table ); } fclose($handle); } $product = new Product();
+$result = $product-&gt;importBulkProducts($products); }
+Session::set('product_global_setup.success', 'Settings saved
+successfully'); } else{ Session::set('product_global_setup.warning',
+'Please upload a file or change the status'); } return
+redirect('web88cms/prdouctglobalsetup'); } function addProduct() {
+if(Request::isMethod('post')) { // echo '</p>
+<pre class="western">';print_r(Request::input());exit;
+                        $messages = [
+                                //'required' =&gt; 'The :attribute field is required.',
+                                'large_image.required' =&gt; 'Max file size should be less than 2MB.',
+                                'roomPrices.required' =&gt; 'Please add the room price.'
+                        ];
+
+                        $validator = Validator::make(Request::all(),[
+                                // 'product_name' =&gt; 'required',
+                                'type' =&gt; 'required',
+                                'room_code' =&gt; 'required',
+                                'categories' =&gt; 'required',
+                                'roomPrices' =&gt; 'required',
+                                // 'large_image' =&gt; 'required|image|max:2000000'
+                        ], $messages);
+
+                        if ($validator-&gt;fails()) {
+                                $json['error'] = $validator-&gt;errors()-&gt;all();
+                                //echo json_encode($json);
+                                //return Redirect::back()-&gt;withErrors($validator);
+                                return Redirect::back()-&gt;withInput()-&gt;withErrors($validator);
+                                exit;
+                        }
+                        else
+                        {
+
+                                $roomPrices = json_decode(Request::get('roomPrices'));
+
+                                $imageName = null;
+                                $custom_data = array();
+                                // if(isset($_FILES['large_image']['name']) &amp;&amp; $_FILES['large_image']['name']!='')
+                                // {
+
+                                //      $imageName = time().'_'.$_FILES['large_image']['name'];
+                                //      Request::file('large_image')-&gt;move(
+                                //              base_path() . '/public/admin/products/large/', $imageName
+                                //      );
+
+                                //      // resize image
+                                //      $this-&gt;resizeImage($imageName);
+
+                                //      $custom_data['large_image'] = $imageName;
+                                // }
+
+                                if(isset($_FILES['thumbnail_image_1']['name']) &amp;&amp; $_FILES['thumbnail_image_1']['name']!='')
+                                {
+
+                                        $thumbnail_image_1 = time().'_'.$_FILES['thumbnail_image_1']['name'];
+                                        Request::file('thumbnail_image_1')-&gt;move(
+                                                base_path() . '/public/admin/products/medium/', $thumbnail_image_1
+                                        );
+
+                                        $custom_data['thumbnail_image_1'] = $thumbnail_image_1;
+                                }
+
+                                // if(isset($_FILES['thumbnail_image_2']['name']) &amp;&amp; $_FILES['thumbnail_image_2']['name']!='')
+                                // {
+
+                                //      $thumbnail_image_2 = time().'_'.$_FILES['thumbnail_image_2']['name'];
+                                //      Request::file('thumbnail_image_2')-&gt;move(
+                                //              base_path() . '/public/admin/products/medium/', $thumbnail_image_2
+                                //      );
+
+                                //      $custom_data['thumbnail_image_2'] = $thumbnail_image_2;
+                                // }
+
+                                // add/update custom values to request input array
+                                $custom_data['status'] = (Request::input('status') == 'on') ? '1' : '0';
+                                $custom_data['is_tax'] = (Request::input('is_tax') == 'on') ? '1' : '0';
+                                // $custom_data['is_available'] = (Request::input('is_available') == 'on') ? '1' : '0';
+                                // $custom_data['in_physical_store_only'] = (Request::input('in_physical_store_only') == 'on') ? '1' : '0';
+                                $custom_data['display_order'] = (Request::input('display_order') != 0) ? Request::input('display_order') : '0';
+
+
+                                $custom_data['promo_behaviour'] = (Request::input('promo_behaviour')) ? implode(',',Request::input('promo_behaviour')) : '';
+
+                                if(sizeof($custom_data) &gt; 0)
+                                        Request::merge($custom_data);
+
+
+                                $product_id = $this-&gt;ProductModel-&gt;addProduct(Request::input());
+
+                                if ($product_id &amp;&amp; $roomPrices) {
+                                        $this-&gt;roomPriceModel-&gt;addRoomPrices($product_id, $roomPrices);
+                                }
+
+                                $this-&gt;data['success'] = 'Product added successfully.';
+
+                                return redirect('/web88cms/products/editProduct/'.$product_id)-&gt;with('data', $this-&gt;data);
+
+                                //Redirect::back()-&gt;with('data', $this-&gt;data);
+                        }
+                }
+
+                // get categories
+                if(Request::old('categories'))
+                        $this-&gt;data['categories'] = $this-&gt;CategoryModel-&gt;getSelectedCategoriesTree(Request::old('categories'));
+                else
+                        $this-&gt;data['categories'] = $this-&gt;CategoryModel-&gt;getCategoriesTree();
+
+                // get active brands
+                $this-&gt;data['brands'] = $this-&gt;BrandModel-&gt;getActiveBrands();
+
+                // get active colors
+                $this-&gt;data['colors'] = $this-&gt;ColorModel-&gt;getActiveColors();
+
+                // set page title
+                $this-&gt;data['page_title'] = 'Add Product';
+
+                return view('admin.products.add_products',$this-&gt;data);
+        }
+
+        function editProduct($product_id)
+        {
+                $this-&gt;data['success_response'] = Session::get('response');
+                Session::forget('response');
+
+                if(Request::ajax()) {
+                        $prices = DB::table('product_room_prices')
+                                -&gt;where('product_id', '=', $product_id)
+                                -&gt;get();
+
+                        $priceArray = [];
+                        foreach($prices as $price) {
+                                $priceArray[] = (object)[
+                                        'id' =&gt; date('Ymd', strtotime($price-&gt;date)),
+                                        'title' =&gt; 'RM: ' . number_format((float)$price-&gt;sale_price, 2, '.', '') . &quot;\r\n&quot; .
+                                                'Qty: ' . number_format((float)$price-&gt;qty_stock, 2, '.', ''),
+                                        'status' =&gt; $price-&gt;status == '1',
+                                        'salePrice' =&gt; $price-&gt;sale_price,
+                                        'listPrice' =&gt; $price-&gt;list_price,
+                                        'qtyStock' =&gt; $price-&gt;qty_stock,
+                                        'lowLevel' =&gt; $price-&gt;low_level,
+                                        'restrictionText' =&gt; $price-&gt;restriction_text,
+                                        'allDay' =&gt; true,
+                                        'start' =&gt; $price-&gt;date,
+                                        'textColor' =&gt; $price-&gt;status == '1' ? '#3c763d' : '#a94442',
+                                        'borderColor' =&gt; 'transparent',
+                                        'backgroundColor' =&gt; 'transparent',
+                                ];
+                        }
+
+                        return response()-&gt;json($priceArray);
+                }
+
+                if(Request::isMethod('post'))
+                {
+                        echo '
+';print_r(Request::input());exit;
+                        $roomPrices = json_decode(Request::get('roomPrices'));
+
+                        $messages = [
+                                'thumbnail_image_1.required' =&gt; 'Max file size should be less than 2MB.',
+                                'max' =&gt; 'Max file size should be less than 2MB.'
+                        ];
+
+                        $validation_rules = array(
+                                'type' =&gt; 'required',
+                                'room_code' =&gt; 'required',
+                                'categories' =&gt; 'required',
+                        );
+
+
+                        // if(Request::file('large_image'))
+                        // {
+                        //      $validation_rules['large_image'] = 'required|image|max:2000';
+                        // }
+
+                        // if(Request::file('large_image'))
+                        // {
+                        //      $file = Request::file('large_image');
+
+                        //      if($file-&gt;getClientSize() &gt; 2000000)
+                        //              $validation_rules['large_image'] = 'required|image|max:2000000';
+                        // }
+
+                        if(Request::file('thumbnail_image_1'))
+                        {
+                                $validation_rules['thumbnail_image_1'] = 'required|image|max:2000000';
+                        }
+
+                        // if(Request::file('thumbnail_image_2'))
+                        // {
+                        //      $validation_rules['thumbnail_image_2'] = 'required|image|max:2000000';
+                        // }
+
+                        $validator = Validator::make(   Request::all(),$validation_rules,
+                                                                                        $messages
+                                                                                );
+
+
+
+                        //$validator = Validator::make( Request::all(),$validation_rules,$messages);
+
+                  if ($validator-&gt;fails()) {
+                                //$json['error'] = $validator-&gt;errors()-&gt;all();
+                                //echo json_encode($json);
+                                //return Redirect::back()-&gt;withErrors($validator);
+                                return Redirect::back()-&gt;withErrors($validator);
+                                exit;
+
+                        }
+                        else
+                        {
+
+                                $imageName = null;
+                                $custom_data = array();
+                                // if(isset($_FILES['large_image']['name']) &amp;&amp; $_FILES['large_image']['name']!='')
+                                // {
+
+                                //      $imageName = time().'_'.$_FILES['large_image']['name'];
+                                //      Request::file('large_image')-&gt;move(
+                                //              base_path() . '/public/admin/products/large/', $imageName
+                                //      );
+
+                                //      // resize image
+                                //      $this-&gt;resizeImage($imageName);
+
+                                //      $custom_data['large_image'] = $imageName;
+                                // }
+
+                                if(isset($_FILES['thumbnail_image_1']['name']) &amp;&amp; $_FILES['thumbnail_image_1']['name']!='')
+                                {
+
+                                        $thumbnail_image_1 = time().'_'.$_FILES['thumbnail_image_1']['name'];
+                                        Request::file('thumbnail_image_1')-&gt;move(
+                                                base_path() . '/public/admin/products/medium/', $thumbnail_image_1
+                                        );
+
+                                        $custom_data['thumbnail_image_1'] = $thumbnail_image_1;
+                                }
+
+                                // if(isset($_FILES['thumbnail_image_2']['name']) &amp;&amp; $_FILES['thumbnail_image_2']['name']!='')
+                                // {
+
+                                //      $thumbnail_image_2 = time().'_'.$_FILES['thumbnail_image_2']['name'];
+                                //      Request::file('thumbnail_image_2')-&gt;move(
+                                //              base_path() . '/public/admin/products/medium/', $thumbnail_image_2
+                                //      );
+
+                                //      $custom_data['thumbnail_image_2'] = $thumbnail_image_2;
+                                // }
+
+                                // add/update custom values to request input array
+                                $custom_data['status'] = (Request::input('status') == 'on') ? '1' : '0';
+                                $custom_data['is_tax'] = (Request::input('is_tax') == 'on') ? '1' : '0';
+                                // $custom_data['is_available'] = (Request::input('is_available') == 'on') ? '1' : '0';
+                                // $custom_data['in_physical_store_only'] = (Request::input('in_physical_store_only') == 'on') ? '1' : '0';
+                                $custom_data['display_order'] = (Request::input('display_order') != 0) ? Request::input('display_order') : '0';
+
+                                $custom_data['promo_behaviour'] = (Request::input('promo_behaviour')) ? implode(',',Request::input('promo_behaviour')) : '';
+
+                                if(sizeof($custom_data) &gt; 0)
+                                        Request::merge($custom_data);
+
+                                //dd(Request::input());
+
+                                $this-&gt;ProductModel-&gt;updateProduct(Request::input(),$product_id);
+
+                                if ($product_id &amp;&amp; $roomPrices) {
+                                        $this-&gt;roomPriceModel-&gt;addRoomPrices($product_id, $roomPrices);
+                                }
+
+                                //Notify user start
+                                if(Input::get('quantity_in_stock') &gt; 0){
+                                        $users = $this-&gt;ProductModel-&gt;getNotifyUsers($product_id);
+
+                                        if($users){
+                                                $ids = array();
+                                                $messageBody = 'Hello, We\'ll like to let you know that product ' . Input::get('type') . ' ' . Input::get('room_code') . ' is now available in our site.';
+
+                                                foreach($users as $users){
+                                                        $messageData = [
+                                                                'fromEmail'                     =&gt; 'registration@ritzgardenhotel.com',
+                                                                'fromName'                              =&gt; 'Ritz Garden Hotel Online booking',
+                                                                'toEmail'                               =&gt; $users-&gt;email,
+                                                                'toName'                                =&gt; $users-&gt;name,
+                                                                'subject'                               =&gt; Input::get('type') . ' ' . Input::get('room_code') . ' is now available!!!'
+                                                        ];
+
+                                                        /*Mail::raw($messageBody, function ($message) use ($messageData) {
+                                                                $message-&gt;from($messageData['fromEmail'], $messageData['fromName']);
+                                                                $message-&gt;to($messageData['toEmail'], $messageData['toName']);
+                                                                $message-&gt;subject($messageData['subject']);
+                                                        });*/
+
+                                                        $ids[] = $users-&gt;id;
+                                                }
+
+                                                $this-&gt;ProductModel-&gt;updateNotifyUsers($ids);
+                                        }
+                                }
+                                //Notify user end
+
+                                $this-&gt;data['success'] = 'Changes saved successfully.';
+
+                                Redirect::back()-&gt;with('data', $this-&gt;data);
+                        } // end else
+                } // end if(Request::isMethod('post'))
+
+                // get product details
+                $this-&gt;data['details'] = $this-&gt;ProductModel-&gt;getProductDetails($product_id);
+
+                // get categories
+                //$this-&gt;data['categories'] = $this-&gt;CategoryModel-&gt;getCategoriesTree();
+
+                $productCategoryList = array();
+                if(sizeof($this-&gt;data['details']['productCategories']) &gt; 0)
+                {
+                        foreach($this-&gt;data['details']['productCategories'] as $productCategories)
+                        {
+                                array_push($productCategoryList,$productCategories-&gt;category_id);
+                        }
+                }
+
+                $this-&gt;data['categories'] = $this-&gt;CategoryModel-&gt;getSelectedCategoriesTree($productCategoryList);
+
+                // get active brands
+                $this-&gt;data['brands'] = $this-&gt;BrandModel-&gt;getActiveBrands();
+
+                // get active colors
+                $this-&gt;data['colors'] = $this-&gt;ColorModel-&gt;getActiveColors();
+
+                // get product images
+                $this-&gt;data['additional_images'] = $this-&gt;ProductModel-&gt;getProductImages($product_id);
+
+                // get quantity discounts
+                $this-&gt;data['quantity_discounts'] = $this-&gt;ProductModel-&gt;getQuantityDiscounts($product_id);
+
+                // get pagination record status
+                $this-&gt;data['pagination_report'] = $this-&gt;ProductModel-&gt;getTotalQuantityDiscounts(Input::get('page'),$product_id);
+
+                // set page title
+                $this-&gt;data['page_title'] = 'Edit Product';
+
+                //Get Available Csv shipping method
+                $this-&gt;data['csv_ships'] = $this-&gt;ShippingModel-&gt;getCsvShippingByWeight((float)$this-&gt;data['details']['productDetails']-&gt;weight);
+
+                //Get pwp products
+                $this-&gt;data['pwp_products'] = PwpProduct::where('product_id', $product_id)-&gt;with('product')-&gt;get();
+
+                $this-&gt;data['tab'] = Input::get('activetab');
+
+                //product ID
+                $this-&gt;data['pid'] = $product_id;
+
+                //room amenities
+                $this-&gt;data['amenities'] = json_decode($this-&gt;ProductModel-&gt;getAmenities($product_id)-&gt;amenities);
+                return view('admin.products.edit_products',$this-&gt;data);
+
+        }
+
+        function deleteImage($type,$product_id)
+        {
+                DB::table('products')-&gt;where('id',$product_id)-&gt;update(array($type =&gt; ''));
+
+                $this-&gt;data['success'] = 'Image removed successfully.';
+
+                //redirect('/web88cms/products/editProduct/'.$product_id)-&gt;with('data', $this-&gt;data);
+                //Redirect::back('/web88cms/products/editProduct/'.$product_id)-&gt;with('data', $this-&gt;data);
+                return redirect('/web88cms/products/editProduct/'.$product_id)-&gt;with('data', $this-&gt;data);
+        }
+
+        function updateShippingInfo($product_id)
+        {
+                $this-&gt;data     = '';
+                if(Request::ismethod('post'))
+                {
+                        $formData = Request::input();
+
+                        unset($formData['_token']);
+
+                        // $formData['shipping_cost'] = str_replace(',','',$formData['shipping_cost']);
+                        $formData['last_modified'] = date('Y-m-d H:i:s');
+
+                        DB::table('products')-&gt;where('id',$product_id)-&gt;update($formData);
+
+                        $this-&gt;data['success'] = 'Changes saved successfully.';
+                }
+
+                return redirect('/web88cms/products/editProduct/'.$product_id)-&gt;with('data', $this-&gt;data);
+        }
+
+        function listProducts()
+        {
+                $page = 0;
+                $sort = 'ASC';
+                $sort_by = 'createdate';
+
+                // response variable is set when item is deleted
+                $this-&gt;data['success'] = Session::get('response');
+                Session::forget('response');
+
+                /*if(Request::get('type'))
+                {
+                        //Session::put('product.per_page',1);
+                        $this-&gt;data['products'] = $this-&gt;ProductModel-&gt;searchProducts(Input::get());
+
+                        // get pagination record status
+                        $this-&gt;data['pagination_report'] = $this-&gt;ProductModel-&gt;getTotalSearchResults(Input::get());
+                }
+                else
+                {
+                        //Session::put('product.per_page',2);
+                        // get products
+                        $this-&gt;data['products'] = $this-&gt;ProductModel-&gt;getProducts(Input::get());
+
+                        // get pagination record status
+                        $this-&gt;data['pagination_report'] = $this-&gt;ProductModel-&gt;getTotalProducts(Input::get('page'));
+                }*/
+
+                $this-&gt;data['products'] = $this-&gt;ProductModel-&gt;searchProducts(Input::get());
+// echo '
+';print_r($this-&gt;data['products']-&gt;toArray());exit;
+                // get pagination record status
+                $this-&gt;data['pagination_report'] = $this-&gt;ProductModel-&gt;getTotalSearchResults(Input::get());
+
+                // get categories
+                //$this-&gt;data['categories'] = $this-&gt;CategoryModel-&gt;getCategoriesTree();
+                //$productCategoryList = (Input::get('category_id') != 'all') ? array(Input::get('category_id')) : '';
+                $this-&gt;data['categories'] = $this-&gt;CategoryModel-&gt;getSelectedCategoriesTree(array(Input::get('category_id')));
+
+                // get active brands
+                $this-&gt;data['brands'] = $this-&gt;BrandModel-&gt;getActiveBrands();
+
+                // get last updated
+                $this-&gt;data['last_modified'] = DB::table('products')-&gt;orderBy('last_modified','desc')-&gt;pluck('last_modified');
+
+                // set page title
+                $this-&gt;data['page_title'] = 'List Products';
+
+                $inputs = Input::get();
+
+                if(Input::get('sort')){
+                        $sort = Input::get('sort');
+                        unset($inputs['sort']);
+                }
+
+                if(Input::get('sort_by')){
+                        $sort_by = Input::get('sort_by');
+                        unset($inputs['sort_by']);
+                }
+
+                $this-&gt;data['sort'] = $sort;
+                $this-&gt;data['sort_by'] = $sort_by;
+                $url = url('web88cms/products/list') . '?';
+
+                if($inputs){
+                        foreach($inputs as $key =&gt; $val){
+                                $url .= $key .'='. $val .'&amp;';
+                        }
+                }
+
+                $this-&gt;data['sorting_url'] = $url;
+
+                return view('admin.products.list_products', $this-&gt;data);
+        }
+
+        function setPerPage($per_page,$session_key,$redirect_to,$query_string=null)
+        {
+                Session::put($session_key.'.per_page',$per_page);
+                if($query_string &amp;&amp; $query_string !='no_qs')
+                {
+                        $redirect_to .= '?'.$query_string;
+                }
+                //echo str_replace('~','/',$redirect_to); exit;
+                return redirect(str_replace('~','/',$redirect_to));
+        }
+
+
+        function updateDescription($product_id)
+        {
+        $desc = Request::input('content');
+                DB::table('products')-&gt;where('id',$product_id)-&gt;update(array('description' =&gt; $desc, 'last_modified' =&gt; date('Y-m-d H:i:s') ));
+        }
+
+        function updateFeaturedVideo($product_id)
+        {
+                DB::table('products')-&gt;where('id',$product_id)-&gt;update(array('features_and_video' =&gt; Request::input('content'), 'last_modified' =&gt; date('Y-m-d H:i:s') ));
+                //echo Request::input('content');
+        }
+
+        function updateWarrantyAndSupport($product_id)
+        {
+                DB::table('products')-&gt;where('id',$product_id)-&gt;update(array('warranty_and_support' =&gt; Request::input('content'), 'last_modified' =&gt; date('Y-m-d H:i:s') ));
+        }
+
+        function updateReturnPolicy($product_id)
+        {
+                DB::table('products')-&gt;where('id',$product_id)-&gt;update(array('return_policy' =&gt; Request::input('content'), 'last_modified' =&gt; date('Y-m-d H:i:s') ));
+        }
+
+        function addImages1($product_id)
+        {
+                //dd($_FILES);
+
+                $files = Input::file('large_image');
+
+                $file_uploaded = array();
+                if(sizeof($_FILES['large_image']['name']) &gt; 0)
+                {
+                        for($i = 0; $i&lt; sizeof($_FILES['large_image']['name']); $i++)
+                        {
+                                if($_FILES['large_image']['name'][$i] != '' &amp;&amp; $_FILES['large_image']['error'][$i] == 0)
+                                {
+                                        $imageName = time().'_'.$_FILES['large_image']['name'][$i];
+
+
+
+                                        $files-&gt;move(
+                                                base_path() . '/public/admin/products/large/', $imageName
+                                        );
+
+                                        /*Request::file('large_image')-&gt;move(
+                                                base_path() . '/public/admin/products/large/', $imageName
+                                        );*/
+
+                                        array_push($file_uploaded,$imageName);
+                                }
+                        }
+                }
+
+                if(sizeof($file_uploaded) == 0)
+                {
+                        $this-&gt;data['success'] = 'Please select valid image.';
+
+                        return redirect('/web88cms/products/editProduct/'.$product_id)-&gt;with('data', $this-&gt;data);
+                }
+
+
+        }
+
+        // reference link : http://tutsnare.com/upload-multiple-files-in-laravel/
+        public function addImages($product_id) {
+                // getting all of the post data
+                $files = Input::file('large_image');
+                // Making counting of uploaded images
+                $file_count = count($files);
+                // start count how many uploaded
+                $uploadcount = 0;
+                $sizeError = '';
+
+                foreach($files as $file) {
+
+                        $destinationPath = base_path() . '/public/admin/products/large/';
+                        if($file)
+                        {
+                                if($file-&gt;getClientSize() &gt; 2000000 || $file-&gt;getClientSize() == 0)
+                                {
+                                        $sizeError = 'Max file size should be less than 2MB.';
+                                }
+                                else
+                                {
+                                        $filename = time().'_'.$file-&gt;getClientOriginalName();
+                                        $upload_success = $file-&gt;move($destinationPath, $filename);
+
+                                        // resize image
+                                        $this-&gt;resizeImage($filename);
+
+                                        $uploadcount ++;
+
+                                        DB::table('product_to_images')-&gt;insert(array('product_id' =&gt; $product_id, 'file_name' =&gt; $filename));
+                                }
+                        }
+                }
+
+                if($sizeError != '')
+                {
+                        $this-&gt;data['error'] = $sizeError;
+                }
+                else if($uploadcount == 0)
+                {
+                        $this-&gt;data['error'] = 'Please select valid image.';
+                }
+                else
+                {
+                 $this-&gt;data['success'] = 'Image(s) saved successfully.';
+                }
+
+                return redirect('/web88cms/products/editProduct/'.$product_id)-&gt;with('data', $this-&gt;data);
+
+        }
+
+        function resizeImage($file_name)
+        {
+                //$this-&gt;Image = new Image_lib();
+                // resize image
+                //$this-&gt;load-&gt;library('image_lib');
+                $path = base_path() . '/public/admin/products/';
+                $source_path = $path.'large/'.$file_name;
+                $medium_image_path = $path.'medium/'.$file_name;
+                //$thumb_path = $path.'small/'.$file_name;
+
+                $config['image_library'] = 'gd2';
+                $config['source_image'] = $source_path;
+                $config['create_thumb'] = TRUE;
+                $config['maintain_ratio'] = TRUE;
+                $config['thumb_marker'] = '';
+
+                // generate thumbnail
+                /*$config['new_image'] = $thumb_path;
+                $config['width'] = 65;
+                $config['height'] = 90;
+                $this-&gt;Image-&gt;initialize_img($config);
+                if ( ! $this-&gt;Image-&gt;resize())
+                {
+                        //echo $this-&gt;Image-&gt;display_errors();
+                }*/
+
+                // medium size image
+                $config['new_image'] = $medium_image_path;
+                $config['width'] = 125;
+                $config['height'] = 75;
+                $this-&gt;Image-&gt;initialize_img($config);
+                if ( ! $this-&gt;Image-&gt;resize())
+                {
+                        //echo $this-&gt;Image-&gt;display_errors();
+                }
+                // end resize
+
+                $this-&gt;Image-&gt;initialize_img($config);
+                $this-&gt;Image-&gt;resize();
+
+                if($this-&gt;Image-&gt;display_errors())
+                {
+                        //echo $this-&gt;Image-&gt;display_errors();
+                }
+
+                //exit;
+        }
+
+        function deleteAdditionalImage($image_id,$product_id)
+        {
+                DB::table('product_to_images')-&gt;where('id',$image_id)-&gt;delete();
+
+                $this-&gt;data['success'] = 'Image removed successfully.';
+
+                //redirect('/web88cms/products/editProduct/'.$product_id)-&gt;with('data', $this-&gt;data);
+                //Redirect::back('/web88cms/products/editProduct/'.$product_id)-&gt;with('data', $this-&gt;data);
+                return redirect('/web88cms/products/editProduct/'.$product_id)-&gt;with('data', $this-&gt;data);
+        }
+
+        function deleteProducts()
+        {
+                $this-&gt;ProductModel-&gt;deleteProducts($_POST['item_id']);
+                Session::put('response', 'Item(s) deleted successfully.');
+        }
+
+        function categoryProducts()
+        {
+                $category_id = Request::Input('category_id');
+                DB::enableQueryLog();
+//              $result = DB::table('products as p')-&gt;select('p.*','c.display_order')-&gt;leftJoin('product_to_category as c','p.id','=','c.product_id')-&gt;where('p.status','1')-&gt;where('c.category_id',$category_id)-&gt;groupBY('p.id')-&gt;get();
+        $result = DB::table('products as p')
+            -&gt;select(
+                'p.*','c.display_order',
+                DB::raw('COALESCE(prp.sale_price, 0) as s_price'),
+                DB::raw('COALESCE(prp.list_price, 0) as list_price'),
+                'prp.date as date'
+            )-&gt;leftJoin(DB::raw('(SELECT * FROM `product_room_prices`) prp'), function ($join) {
+                $join-&gt;on('p.id', '=', 'prp.product_id')
+                    -&gt;where('prp.status', '=', '1')
+                    -&gt;where('prp.date', '=', date('Y-m-d'));
+            })-&gt;leftJoin('product_to_category as c', 'p.id', '=', 'c.product_id')
+            -&gt;where('p.status', '1')
+            -&gt;where('c.category_id', $category_id)-&gt;groupBY('p.id')-&gt;get();
+                // print_r(DB::getQueryLog());exit;
+
+                foreach($result as $key =&gt; $item) {
+                        $d = [
+                                'rooms' =&gt; DB::table('product_room_prices')-&gt;where('product_id', $item-&gt;id)-&gt;get(),
+                                'qty_stock' =&gt; 0,
+                                'low_level' =&gt; 0,
+                        ];
+
+                        foreach ($d['rooms'] as $key =&gt; $value) {
+                                try {
+                                        $dt = Carbon::createFromFormat('Y-m-d', $value-&gt;date);
+                                        $dt_now = Carbon::now();
+                                        if($dt_now-&gt;format('d-m-Y') == $dt-&gt;format('d-m-Y'))
+                                        {
+                                                $d['all_day'][] = $dt-&gt;format('d-m-Y');
+                                                $d['qty_stock'] += $value-&gt;qty_stock;
+                                                $d['low_level'] += $value-&gt;low_level;
+                                                //dd($value-&gt;date);
+                                        }
+                                }catch(\InvalidArgumentException $x) {
+                                        //echo $x-&gt;getMessage();
+                                }
+                        }
+
+                        $item-&gt;quantity_in_stock = $d['qty_stock'];
+                        $item-&gt;low_level_in_stock = $d['low_level'];
+                        $new_res[] = $item;
+                }
+
+                if(count($new_res) &gt; 0)
+                        echo json_encode(array('products' =&gt; $new_res));
+        }
+
+        function addQuantityDiscount()
+        {
+                $formData = Input::get();
+
+                if($formData['from_quantity'] != '' &amp;&amp; $formData['to_quantity'] != '')
+                {
+                        unset($formData['_token']);
+
+                        $formData['status'] = (isset($formData['status'])) ? '1' : '0';
+
+                        DB::table('product_to_quantity_discount')-&gt;insert($formData);
+
+                        $this-&gt;data['success'] = 'Quantity discount added successfully.';
+
+                        return Redirect::back()-&gt;with('data', $this-&gt;data);
+                }
+
+                return Redirect::back();
+        }
+
+        function updateQuantityDiscount()
+        {
+                $formData = Input::get();
+
+                if($formData['from_quantity'] != '' &amp;&amp; $formData['to_quantity'] != '')
+                {
+                        unset($formData['_token']);
+
+                        $discount_id = $formData['discount_id'];
+                        unset($formData['discount_id']);
+
+                        $formData['discount'] = str_replace(',','',$formData['discount']);
+                        $formData['status'] = (isset($formData['status'])) ? '1' : '0';
+
+                        DB::table('product_to_quantity_discount')-&gt;where('id',$discount_id)-&gt;update($formData);
+
+                        $this-&gt;data['success'] = 'Quantity discount updated successfully.';
+
+                        return Redirect::back()-&gt;with('data', $this-&gt;data);
+                }
+
+                return Redirect::back();
+        }
+
+        function deleteQuantityDiscount()
+        {
+                $this-&gt;ProductModel-&gt;deleteQuantityDiscount($_POST['item_id']);
+                Session::put('response', 'Item(s) deleted successfully.');
+        }
+
+        /*function listCategories()
+        {
+                //$categories = DB::table('categories')-&gt;get();
+                $category = new Category();
+                echo '
+';// print_r($category-&gt;getCategories());
+                print_r($category-&gt;getCategoriesTree());
+                        exit;
+        }*/
+
+        /*function getUserDetails($id)
+        {
+                $user = new User();
+                $data['userDetails'] = $user-&gt;getUser($id);
+                return view('admin.profile', $data);
+        }
+
+        function getAlbums()
+        {
+                $user = new User();
+                $data['albums'] = $user-&gt;getAlbums();
+                return view('admin.albums', $data);
+        }
+
+        public function checkSession()
+        {
+                Session::put('session_key', 'sad adl lasdla');
+                echo Session::get('session_key');
+                exit;
+                //return view('admin.dashboard');
+        }*/
+
+
+
+        public function editProductAmenities(\Illuminate\Http\Request $request, $id){
+            if(!$request-&gt;ajax()){return false;}
+            $res = $this-&gt;ProductModel-&gt;saveAmenities($request-&gt;all(), $id);
+            return json_encode($res);
+    }
+}</pre>
+</body>
+</html>

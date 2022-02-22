@@ -123,9 +123,9 @@ $loaderText= Loader::get();
     </style>
 
     <!--================= Content Area ===================-->
-    <div id="se-pre-con">
-        <h1>{{$loaderText[0]->name}}</h1>
-    </div>
+{{--    <div id="se-pre-con" style="display: none">--}}
+{{--        <h1>{{$loaderText[0]->name}}</h1>--}}
+{{--    </div>--}}
 
     @include('front/check_avail/onlinebook_CheckAvail')
 
@@ -156,13 +156,13 @@ $loaderText= Loader::get();
                       name="checkAvailSignupForm" action="">
                     <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}" />
                     <input type="hidden" name="notify_product_id" id="notify_product_id"
-                           value="<?php echo empty($pid) ? '' : $pid ?>" />
+                           value="<?php echo empty($pickup) ? '' : $pickup ?>" />
                     <input type="hidden" name="notify_checkin_date" id="notify_checkin_date"
-                           value="<?php echo empty($arrival) ? '' : $arrival ?>" />
+                           value="<?php echo empty($dropoff) ? '' : $dropoff ?>" />
                     <input type="hidden" name="notify_checkout_date" id="notify_checkout_date"
-                           value="<?php echo empty($departure) ? '' : $departure ?>" />
+                           value="<?php echo empty($departureDate) ? '' : $departureDate ?>" />
                     <input type="hidden" name="notify_room" id="notify_room"
-                           value="<?php echo empty($room) ? '' : $room ?>" />
+                           value="<?php echo empty($departureTime) ? '' : $departureTime ?>" />
                     <input type="hidden" name="notify_adult" id="notify_adult"
                            value="<?php echo empty($adult) ? '' : $adult ?>" />
                     <input type="hidden" name="notify_children" id="notify_children"
@@ -181,18 +181,18 @@ $loaderText= Loader::get();
                 </form>
             </div>
 
-            <div class="row result-container" style="display: block;">
+            <div class="row result-container" style="display: none;">
                 <div class="col-md-12 room-single-content">
                     <div class="single-room list mobile-extend" style="margin-bottom: 20px; ">
-                        <div class="table-responsive margin-top package" style="display: block;">
+                        <div class="table-responsive margin-top package" style="display: none;">
                             <table class="table">
                                 <tr>
                                     <td style="width:50%">
                                         <ul style="text-align: left;">
-                                            <li>Pick Up: <span class="text-black info-property"><b>{{@($product_details[0]->property_id)}}</b></span></li>
-                                            <li>Drop Off: <span class="text-black info-checkin"><b>{{@($product_details[0]->drop_list_id)}}</b></span></li>
-                                            <li>Date: <span class="text-black info-checkout"><b>{{@($departure)}}</b></span></li>
-                                            <li>Time: <span class="text-black info-rooms"><b>{{@($product_details[0]->created)}}</b></span></li>
+                                            <li>Pick Up: <span class="text-black info-property"><b>{{@($product_details->pickUp->name)}}</b></span></li>
+                                            <li>Drop Off: <span class="text-black info-checkin"><b>{{@($product_details->dropOff->name)}}</b></span></li>
+                                            <li>Date: <span class="text-black info-checkout"><b>{{@($departureDate)}}</b></span></li>
+                                            <li>Time: <span class="text-black info-rooms"><b>{{@($departureTime)}}</b></span></li>
                                             <li>Adults: <span class="text-black info-adults"><b>{{@($adult)}}</b></span></li>
                                             <li>Children: <span class="text-black info-children"><b>{{@($childrens)}}</b></span></li>
                                         </ul>
@@ -207,19 +207,7 @@ $loaderText= Loader::get();
                                 </tr>
                             </table>
                         </div>
-
-                        <ul class="non-package" style="text-align: left;">
-                            <li>Pick Up: <span class="text-black info-property"><b>{{@($product_details[0]->property_id)}}</b></span></li>
-                            <li>Drop Off: <span class="text-black info-checkin"><b>{{@($product_details[0]->drop_list_id)}}</b></span></li>
-                            <li>Date: <span class="text-black info-checkout"><b>{{@($departure)}}</b></span></li>
-                            <li>Time: <span class="text-black info-rooms"><b>{{@($product_details[0]->created)}}</b></span></li>
-                            <li>Adults: <span class="text-black info-adults"><b>{{@($adult)}}</b></span></li>
-                            <li>Children: <span class="text-black info-children"><b>{{@($childrens)}}</b></span></li>
-                        </ul>
-
                         <div class="table-responsive margin-top">
-
-
                             <table class="table cart-table">
                                 <thead>
                                 <tr>
@@ -235,8 +223,7 @@ $loaderText= Loader::get();
                                     <td class="item-name-col">
 
                                         <figure>
-                                            <a href="#room-details"><img src=""
-                                                                         alt="Deluxe Room" class="img-responsive"></a>
+                                            <a href="#room-details"><img src="{{asset('/public/admin/products/medium/'.@$product_details->thumbnail_image_1)}}" alt="Deluxe Room" class="img-responsive"></a>
                                         </figure>
                                         <header class="item-name">
                                             <a href="#room-details">Deluxe Room </a>
@@ -475,7 +462,7 @@ $loaderText= Loader::get();
                     <h4 class="modal-title" id="myModalLabel2">Validation</h4>
                 </div><!-- End .modal-header -->
                 <div class="modal-body clearfix">
-                    <p class='modal-text'>Please insert the Check-in Date and Check-out Date.</p>
+                    <p class='modal-text'>Please insert the Pick Up and Drop Off Date.</p>
                     <div class="xs-margin"></div>
                     <div class="pull-right">
                         <button type="button" class="btn btn-default" data-dismiss="modal"
@@ -495,7 +482,7 @@ $loaderText= Loader::get();
 <script src="https://besarhati8.webqom.com/public/src/dist/js/timepicker.min.js"></script>
 
 <script type="text/javascript">
-       $(document).ready(function () {
+    $(document).ready(function () {
         $('#timepicker').timepicker();
 
         // Handler for .ready() called.
@@ -714,7 +701,7 @@ $loaderText= Loader::get();
     window.onload = function () {
         jQuery('.amount.text-danger').removeClass('promo');
         calculate_sub_total();
-        @if (!empty($arrival))
+        @if (!empty($pickup) && !empty($dropoff))
         checkAvail();
         @endif
 
@@ -826,32 +813,31 @@ $loaderText= Loader::get();
 
     function checkAvail() {
         $('#se-pre-con').show();
-        var pickUpLocation=jQuery("#pickUpLocation option:selected").text();
-        var DropOffLocation = jQuery("#drop-list option:selected").text();
+        var pickUpLocation=jQuery("#pickUpLocation option:selected").val();
+        var DropOffLocation = jQuery("#drop-list option:selected").val();
         var departure = jQuery('#date-departure').val();
-        var timedepart = jQuery('#departTime').val();
+            var timedepart = jQuery('#timepicker').val();
         var adultsAvail = jQuery("#adult-avail").val();
         var childrenAvail = jQuery("#children-avail").val();
         var check =localStorage.getItem('change');
-
+        console.log(pickUpLocation , DropOffLocation , departure , timedepart , adultsAvail , childrenAvail)
         localStorage.setItem('pickUpLocation',pickUpLocation);
 
         if (DropOffLocation == '' || pickUpLocation == '') {
             $('#se-pre-con').hide();
             jQuery('.modal-text').text('Please select Check In and Drop Off.');
             jQuery('#modal-validation').modal('show');
-          }
+        }
         jQuery('#no-result').hide();
 
         var data = {
             _token: '{{ csrf_token() }}',
-            checkin: pickUpLocation,
-            checkout: DropOffLocation,
+            pickup: pickUpLocation,
+            dropoff: DropOffLocation,
             dateDeparture: departure,
             timeDeparture: timedepart,
-            adult: jQuery('#adult-avail').val(),
-            childrens: jQuery('#children-avail').val(),
-            product_id: '<?php echo empty($pid) ? '' : $pid ?>'
+            adult: adultsAvail,
+            childrens: childrenAvail,
         };
         jQuery.ajax({
             url: "{{ url('check-availability') }}",
@@ -861,8 +847,7 @@ $loaderText= Loader::get();
             async: false,
             cache: false,
             success: function (response) {
-                console.log(response.status );
-                console.log(response.status);
+                console.log(response);
                 if (response.status) {
                     jQuery('.cart-table tbody').empty();
 

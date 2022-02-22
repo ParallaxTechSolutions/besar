@@ -34,7 +34,7 @@
                                     <select name="property" id="pickUpLocation">
                                         @foreach($properties as $key => $val)
                                             <option value="{{$val->property_id}}"
-                                                    {{@($property == $val->property_id ? 'selected' : '')}}>{{$val->name}}
+                                                    {{@($pickup == $val->property_id ? 'selected' : '')}}>{{$val->name}}
                                             </option>
                                         @endforeach
                                     </select>
@@ -47,7 +47,7 @@
                                     <select name="dropOfLocation" id="drop-list" class=" form-controller">
                                         @foreach($drop_off_list as $key => $val)
                                             <option value="{{$val->drop_list_id}}"
-                                                    {{@($arrival == $val->drop_list_id ? 'selected' : '')}}>{{$val->name}}
+                                                    {{@($dropoff == $val->drop_list_id ? 'selected' : '')}}>{{$val->name}}
                                             </option>
                                         @endforeach
                                     </select>
@@ -60,7 +60,7 @@
                                 <div class="input box-radius"><i class="fa fa-calendar"></i>
                                     <input type="text" id="date-departure" placeholder="Check-out Date"
                                            class=" form-controller"
-                                           value="<?php echo empty($departure) ? '' : $departure ?>">
+                                           value="<?php echo empty($departureDate) ? '' : $departureDate ?>">
                                 </div>
                                 <!--/.input-->
                             </div>
@@ -68,7 +68,7 @@
                             <div class="col-md-2 col-lg-1 padding-left">
                                 <label class="text-uppercase">Time</label>
                                 <div class="input box-radius">
-                                    <input type='text' name="room" id="timepicker" class="form-controller bs-timepicker" style="width:100%" value="<?php echo empty($room) ? '' : $room ?>" placeholder="Time" id="departTime" >
+                                    <input type='text' name="timepicker" id="timepicker" class="form-controller bs-timepicker" style="width:100%" value="<?php echo empty($departureTime) ? '' : $departureTime ?>" placeholder="Time" id="departTime" >
                                 </div>
                                 <!--/.input-->
                             </div>

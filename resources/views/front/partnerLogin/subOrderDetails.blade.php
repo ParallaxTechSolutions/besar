@@ -89,9 +89,9 @@
                                             <label class="col-md-12 control-label">Select To Update</label>
                                             <div class="col-md-12">
                                                 <select name="confirmedStatus" id="confirmedStatus" class="form-control">
-                                                    <option <?php $userOrderDetails[0]->status == 'New Order' ? 'selected="selected"'; ?> value="New Order">New Order</option>
-                                                    <option <?php $userOrderDetails[0]->status == 'Completed' ? 'selected="selected"';?> value="Completed">Confirmed</option>
-                                                    <option <?php $userOrderDetails[0]->status == 'Declined' ? 'selected="selected"';?> value="Declined">Not Available</option>
+                                                    <option  <?php if (!empty($userOrderDetails[0]->status) && $userOrderDetails[0]->status == 'New Order') echo "selected='selected'"; ?> value="New Order">New Order</option>
+                                                    <option <?php if (!empty($userOrderDetails[0]->status) && $userOrderDetails[0]->status == 'Completed') echo "selected='selected'"; ?> value="Completed">Confirmed</option>
+                                                    <option  <?php if (!empty($userOrderDetails[0]->status) && $userOrderDetails[0]->status == 'Declined') echo "selected='selected'"; ?> value="Declined">Not Available</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -171,8 +171,8 @@
                                         <label class="col-md-12 control-label">Select To Update</label>
                                         <div class="col-md-12">
                                             <select name="fulfilmentStatus" id="fulfilmentStatus" class="form-control">
-                                                <option  <?php $userOrderDetails[0]->payment_status == 'Processing' ? ' selected="selected"' : '';  ?> value="Processing">Processing</option>
-                                                <option <?php $userOrderDetails[0]->payment_status == 'Paid' ? 'selected="selected"';?> value="Paid">Fulfilled</option>
+                                                <option  <?php if (!empty($userOrderDetails[0]->payment_status) && $userOrderDetails[0]->payment_status == 'Processing') echo "selected='selected'"; ?>  value="Processing">Processing</option>
+                                                <option <?php if (!empty($userOrderDetails[0]->payment_status) && $userOrderDetails[0]->payment_status == 'Paid') echo "selected='selected'"; ?>  value="Paid">Fulfilled</option>
                                             </select>
                                         </div>
                                     </div>

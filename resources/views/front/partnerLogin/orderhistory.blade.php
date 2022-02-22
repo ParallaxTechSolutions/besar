@@ -96,7 +96,7 @@
                                         <tr>
                                           <td><a href="orderdetails/{{$order->id}}">#{{$order->id}}</a></td>
                                            <td><a href="orderdetails/{{$order->id}}">{{$order->order_id}}</a></td>
-                                           <td><?php echo date('dS M, Y', strtotime($order->modifydate));?></td>
+                                           <td><?php echo date('dS M, Y', strtotime($order->modifydate)); ?></td>
                                            <?php
                                             $ordersModel = new App\Http\Models\Admin\Orders();
                                             $orderTax = $ordersModel->getOrderTax($order->id);

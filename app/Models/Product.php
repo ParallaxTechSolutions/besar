@@ -1,5 +1,6 @@
 <?php namespace App\Models;
 
+use App\Http\Models\Admin\Property;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model {
@@ -13,5 +14,20 @@ class Product extends Model {
 
 
     public $timestamps = false;
+
+    /**
+     * @return relation with pick up location
+     */
+    public function pickUp()
+    {
+        return $this->belongsTo(Property::class, 'property_id','property_id');
+    }
+    /**
+     * @return realtion with drop off location
+     */
+    public function dropOff()
+    {
+        return $this->belongsTo(DropOffList::class, 'drop_list_id','drop_list_id');
+    }
 
 }

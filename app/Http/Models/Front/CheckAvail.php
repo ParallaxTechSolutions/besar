@@ -12,7 +12,7 @@ class CheckAvail extends Model {
                 ->join('product_room_prices as prp', function ($join) use ($check_in, $check_out) {
                     $join->on('products.id', '=', 'prp.product_id')
                     ->where('prp.status', '=', '1')
-                    ->where('prp.date', '<', $check_out)
+//                    ->where('prp.date', '<', $check_out)
                     ->where('prp.qty_stock', '>', 0)
                     ->where('prp.date', '>=', $check_in);
                 })
@@ -60,12 +60,12 @@ class CheckAvail extends Model {
                 )
                 ->addSelect(DB::raw('(select gst_rates.rate from gst_rates where gst_rates.status = 1 limit 0,1) as gst_rate'))
                 ->addSelect(DB::raw('(select gst_rates.name from gst_rates where gst_rates.status = 1 limit 0,1) as gst_name'));
-
+dd($result);
        if (!empty($data['product_id'])) {
            $result->where('products.id', $data['product_id']);
        }
-       if (isset($data['property']) && !empty($data['property']) && $data['property'] > 0) {
-           $result->where('products.property_id', $data['property']);
+       if (isset($data['pickup']) && !empty($data['pickup']) && $data['pickup'] > 0) {
+           $result->where('products.property_id', $data['pickup']);
        }
 
         if(!empty($data['adult']) && !empty($data['childrens'])){

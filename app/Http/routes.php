@@ -60,9 +60,9 @@ Route::group(['middleware' => 'global.settings'], function () {
 
 
     Route::get('/check-availability/check-discount', 'Front\CheckAvailController@checkDiscount');
-    Route::get('/check-availability','Front\CheckAvailController@index');
+    Route::get('/check-availability',                                               'Front\CheckAvailController@index');
     Route::get('/get_packages/{id}','Front\CheckAvailController@getPackages');
-    Route::post('/check-availability','Front\CheckAvailController@check_avail');
+    Route::post('/check-availability',                                              'Front\CheckAvailController@check_avail');
     Route::post('/check-availability-left','Front\CheckAvailController@check_availability_left');
     Route::post('/make-cart','Front\CheckAvailController@saveCart');
     Route::post('/lr-make-cart','Front\CheckAvailController@saveLrCart');

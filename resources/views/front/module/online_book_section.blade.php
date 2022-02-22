@@ -100,8 +100,8 @@
                     <div class="title-box tb">
                         <div class="title-box-text tb-cell">
                             <h2 class="section-title">Airport <br />
-Transfers</h2>
-                      </div>
+                                Transfers</h2>
+                        </div>
                         <div class="tb-cell box-inner">
                             <div class="title-box-inner">
                                 <h3 class="section-name">Search<span>Cars</span></h3><i class="fa fa-angle-right"></i>
@@ -146,7 +146,7 @@ Transfers</h2>
                             <label class="text-uppercase">Pick Up</label>
                             <div class="input box-radius">
                                 <!-- <i class="fa fa-caret-down"></i> -->
-                                <select name="property">
+                                <select name="pickup">
                                     @foreach($properties as $key => $val)
                                         <option value="{{$val->property_id}}">{{$val->name}}</option>
                                     @endforeach
@@ -157,9 +157,9 @@ Transfers</h2>
                         <div class="col-md-2 col-lg-2 padding-left">
                             <label class="text-uppercase">Drop Off</label>
                             <div class="input box-radius">
-                                <select name="arrival">
+                                <select name="dropoff">
                                     @foreach($drop_off_list as $key => $val)
-                                                <option value="{{$val->drop_list_id}}">{{$val->name}}</option>
+                                        <option value="{{$val->drop_list_id}}">{{$val->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -169,7 +169,7 @@ Transfers</h2>
                         <div class="col-md-2 col-lg-2 padding-left">
                             <label class="text-uppercase">Date</label>
                             <div class="input box-radius"><i class="fa fa-calendar"></i>
-                                <input type="text" id="date-departure" placeholder="Date" name="departure"
+                                <input type="text" id="date-departure" placeholder="Date" name="departureDate"
                                        class="form-controller">
                             </div>
                             <!--/.input-->
@@ -178,7 +178,7 @@ Transfers</h2>
                         <div class="col-md-2 col-lg-1 padding-left">
                             <label class="text-uppercase">Time</label>
                             <div class="input box-radius">
-                                    <input type='text' name="room" style="width:100%"  placeholder="Time"    class="form-controller bs-timepicker">
+                                <input type='text' name="departureTime" style="width:100%"  placeholder="Time"    class="form-controller bs-timepicker">
                             </div>
                             <!--/.input-->
                         </div>
@@ -225,7 +225,7 @@ Transfers</h2>
                         </div>
                         <!--/.col-md-2-->
                         <div class="col-md-2 padding-left button-booking">
-                            <a class="btn btn-default" id="online-book-form-btn"
+                            <a class="btn btn-default" type="submit" id="online-book-form-btn"
                                style="padding-top: 6px;line-height: normal;">Check Availability</a>
                             <!--/.btn-->
                         </div>
@@ -281,7 +281,7 @@ Transfers</h2>
                 <h4 class="modal-title" id="myModalLabel2">Validation</h4>
             </div><!-- End .modal-header -->
             <div class="modal-body clearfix">
-                <p class='modal-text'>Rooms are not available for the lowest rate.</p>
+                <p class='modal-text'>Vehicle are not available for the lowest rate.</p>
                 <div class="xs-margin"></div>
                 <div class="pull-right">
                     <button type="button" class="btn btn-default" data-dismiss="modal"
@@ -310,7 +310,7 @@ Transfers</h2>
                 <span>Please enter your dates. Compare and book direct.</span>
                 <div class="alert alert-warning" style="display:none" id="less_rooms_available_for_lowest_rate">
                     <i class="fa fa-exclamation-circle"></i>
-                    Sorry, no room is available for the selected date. Please choose another date.
+                    Sorry, no Vehicle is available for the selected date. Please choose another date.
                 </div>
 
                 <form action="#" method="post" id="lowest_rate_form" name="commentForm" class="online-book-form">
@@ -371,10 +371,8 @@ Transfers</h2>
             select: function (date, context) {
             },
             apply: function (date, context) {
-                console.log(date);
                 var dd = moment(date);
                 dd.set('date', dd.get('date') + 1);
-                console.log("date ==", dd.format('YYYY-MM-DD'));
                 if (jQuery('#date-departure').val() != '' && new Date(jQuery('#date-arrival').val()) >= new Date(jQuery('#date-departure').val())) {
                     jQuery('#date-departure').val(dd.format('YYYY-MM-DD'));
                 }
@@ -436,10 +434,8 @@ Transfers</h2>
             select: function (date, context) {
             },
             apply: function (date, context) {
-                console.log(date);
                 var dd = moment(date);
                 dd.set('date', dd.get('date') + 1);
-                console.log("date ==", dd.format('YYYY-MM-DD'));
                 if (jQuery('#date-departure').val() != '' && new Date(jQuery('#date-arrival').val()) >= new Date(jQuery('#date-departure').val())) {
                     jQuery('#date-departure').val(dd.format('YYYY-MM-DD'));
                 }
@@ -470,11 +466,9 @@ Transfers</h2>
             select: function (date, context) {
             },
             apply: function (date, context) {
-                console.log(date);
                 var ddt = moment(date);
                 ddt.set('date', ddt.get('date') + 1);
                 checkDates();
-                console.log("date ==", ddt.format('YYYY-MM-DD'));
                 if (jQuery('#Ldate-departure').val() != '' && new Date(jQuery('#Ldate-arrival').val()) >= new Date(jQuery('#Ldate-departure').val())) {
                     jQuery('#Ldate-departure').val(ddt.format('YYYY-MM-DD'));
                 }
@@ -499,8 +493,6 @@ Transfers</h2>
     });
 
     function checkDates(){
-        console.log($('#Ldate-arrival').val());
-        console.log($('#Ldate-departure').val());
         let date1 = $('#Ldate-arrival').val();
         let date2 = $('#Ldate-departure').val();
         if(date1 != '') {
@@ -629,9 +621,6 @@ Transfers</h2>
                     });
                     var new_rate = response[0].new_rate - response[0].new_rate * 10 / 100;
                     response[0]['new_rate'] = new_rate;
-
-                    console.log('new_rate');
-                    console.log(new_rate.toFixed(2));
 
                     if(new_rate){
                         $('#lowest_rate').show();

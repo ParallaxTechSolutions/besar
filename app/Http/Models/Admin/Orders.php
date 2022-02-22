@@ -10,8 +10,6 @@ use App\Http\Models\ShippingMethod;
 use Session;
 use Helper;
 use Input;
-use App\Models\Product;
-
 class Orders extends Model {
 
     public function getOrder($order_id) {

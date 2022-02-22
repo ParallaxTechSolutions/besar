@@ -473,7 +473,7 @@ function reverseCalculation($totalBill,$TaxRate){
                             date: jQuery("#date").val(),
                             time: jQuery('#time').val(),
                             partner_id: <?php echo Auth::user()->id; ?> ,
-                            order_id: <?php echo $userOrderDetails[0]->order_id;?> ,
+                            order_id: <?php echo $userOrderDetails[0]->order_id; ?> ,
                         };
 
                         jQuery.ajaxSetup({

@@ -81,7 +81,7 @@ return [
 			'host'      => 'localhost',
 			'database'  => 'webqom_besar8',
 			'username'  => 'besar8',
-			'password'  => '9591adF6BW4w',
+			'password'  => '629XN5L4jODu',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
